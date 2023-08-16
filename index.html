@@ -1,79 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6811311873085870"
-     crossorigin="anonymous"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6811311873085870"
-     crossorigin="anonymous"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aashish Timalsina - Portfolio</title>
-  <style>
-    /* CSS styles */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .header {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .name {
-      font-size: 36px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .bio {
-      margin-bottom: 20px;
-    }
-
-    .skills {
-      margin-bottom: 20px;
-    }
-
-    .footer {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aashish Timalsina - Portfolio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-
 <body>
-  <div class="header">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Aashish Timalsina</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<header class="jumbotron text-center bg-primary text-white">
+    <img src="https://avatars.githubusercontent.com/u/55835332?v=4" alt="Profile Photo" class="img-fluid rounded-circle" style="width: 150px; height: 150px;">
     <h1>Aashish Timalsina</h1>
-  </div>
+    <p>CSIT student at NIST College, Banepa</p>
+</header>
 
-  <div class="container">
-    <h2 class="name">Hello, I'm Aashish Timalsina</h2>
+<section id="about" class="container py-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>About Me</h2>
+            <p>I'm a BSc CSIT student currently studying at NIST College, Banepa. I'm passionate about Linux programming and I'm currently learning Laravel with React, Flutter, and Django.</p>
+        </div>
+        <div class="col-lg-6">
+            <h2>Skills</h2>
+            <ul>
+                <li>Laravel</li>
+                <li>React</li>
+                <li>Flutter</li>
+                <li>Django</li>
+                <li>Linux Programming</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-    <p class="bio">I'm a passionate web developer with expertise in HTML, CSS, and JavaScript. I love building interactive and responsive websites that provide great user experiences.</p>
+<section id="portfolio" class="bg-light py-5">
+    <div class="container text-center">
+        <h2>Portfolio</h2>
+        <!-- Add your portfolio items here -->
+    </div>
+</section>
 
-    <h3 class="skills">Skills</h3>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-    </ul>
-  </div>
+<section id="contact" class="container py-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Contact</h2>
+            <p>You can reach out to me at:</p>
+            <p>Email: <a href="mailto:tm.aashish1@gmail.com">tm.aashish1@gmail.com</a></p>
+            <p>Website: <a href="https://aashishtimalsina.com.np">aashishtimalsina.com.np</a></p>
+        </div>
+        <div class="col-lg-6">
+            <!-- Add a contact form or additional contact information here if needed -->
+        </div>
+    </div>
+</section>
 
-  <div class="footer">
-    <p>&copy; 2023 Aashish Timalsina. All rights reserved.</p>
-  </div>
+<footer class="text-center py-3 bg-dark text-white">
+    <p>&copy; 2023 Aashish Timalsina</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>
