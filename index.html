@@ -1,114 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aashish Timalsina - Portfolio</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
+  <head>
+    <!-- Metadata of the Webpage -->
+    <!-- Character-set Metadata -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Viewport Metadata -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Description Metadata-->
+    <meta name="description" content="Portfolio Website" />
+    <!-- Author Metadata -->
+    <meta name="author" content="Aashish Timalsina " />
+    <!-- Keyword Metadata -->
+    <meta
+      name="keywords"
+      content="Aashish, NeeRaj , Aashish Timalsina , Aashish Timalsina  ,Laravel Developer,
+        Aashish Timalsina  Flutter Developer, Aashish Timalsina  ReactJs Developer , Aashish Timalsina  Nepal ,  Aashish Timalsina  Senior Developer , Aashish Timalsina  NASA,
+        Aashish Timalsina App Developer ,ios  ,flutter , ReactJS,laravel , Aashish Timalsina  Website, Python , Fast API, go lang, rust , mysql , postgres, vs-code, nvim, youtube, instagram , Redux, React,
+        Vue, Flask, Django, Sqlite, Photoshop, Lighroom, UI/UX"
+    />
+    <!-- Webpage Logo -->
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Aashish Timalsina</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#contact">Contact</a>
-            </li>
-        </ul>
+    <!-- Webpage Title -->
+    <title>Aashish Timalsina</title>
+
+    <!-- Import CSS: Main Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+
+  <body>
+    <div id="particles-js">
+      <div class="header">
+        <h1>
+          <span class="site-title">Aashish Timalsina </span>
+          <span class="site-description"
+            >Programmer • Web Developer • App Developer • AI/ML • Data
+            Science</span
+          >
+        </h1>
+        <div class="header-icons">
+          <a
+            aria-label="My LinkedIn Profile"
+            target="_blank"
+            href="https://www.linkedin.com/in/aashishtimalsina/"
+          >
+            <i class="icon fa fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a
+            aria-label="My Github Profile"
+            target="_blank"
+            href="https://github.com/aashishtimalsina"
+          >
+            <i class="icon fa fa-github-alt" aria-hidden="true"></i>
+          </a>
+          <a aria-label="My Résumé" target="_blank" href="./assets/cv/cv.pdf">
+            <i class="icon fa fa fa-file-pdf-o" aria-hidden="true"></i>
+          </a>
+          <a
+            aria-label="Send Email"
+            href="mailto:tm.aashish1@gmail.com"
+            target="_blank"
+            ><i class="icon fa fa-envelope"></i
+          ></a>
+        </div>
+        <div class="header-links">
+          <a class="link" href="#about" data-scroll>About Me</a>
+          <!-- <a class="link" href="#projects" data-scroll>Projects</a> -->
+        </div>
+      </div>
+      <a class="down" href="#about" data-scroll
+        ><i class="icon fa fa-chevron-down" aria-hidden="true"></i
+      ></a>
     </div>
-</nav>
 
-<header class="jumbotron text-center bg-primary text-white">
-    <img src="https://avatars.githubusercontent.com/u/55835332?v=4" alt="Profile Photo" class="img-fluid rounded-circle" style="width: 150px; height: 150px;">
-    <h1>Aashish Timalsina</h1>
-    <p>CSIT student at NIST College, Banepa</p>
-</header>
+    <!-- About Section -->
+    <section id="about">
+      <!-- User Introduction-->
+      <div class="user-details">
+        <h1>My Story</h1>
+        <picture>
+          <source
+            type="image/webp"
+            srcset="https://avatars.githubusercontent.com/u/55835332"
+            alt="Aashish Timaslina"
+            width="20%"
+            style="border-radius: 50%"
+          />
+          <img
+            src="https://avatars.githubusercontent.com/u/55835332"
+            alt="Aashish Timaslina"
+            width="20%"
+            style="border-radius: 50%"
+          />
+        </picture>
+        <p>
+          I am Aashish Timalsina, currently pursuing a
+          <strong
+            >BSc CSIT (Bachelor of Science in Computer Science and Information
+            Technology)</strong
+          >
+          at <strong>NIST Banepa</strong>. As a full-stack developer, I have
+          strong expertise in
+          <strong>Laravel, Python Django, FastAPI, and React.js</strong>.
+          Additionally, I am also working on
+          <strong>mobile app development</strong>. I am passionate about
+          expanding my knowledge and skills, with future goals of exploring the
+          realms of <strong>AI</strong> and emerging technologies.
+        </p>
+      </div>
 
-<section id="about" class="container py-5">
-    <div class="row">
-        <div class="col-lg-6">
-            <h2>About Me</h2>
-            <p>I'm a BSc CSIT student currently studying at NIST College, Banepa. I'm passionate about Linux programming and I'm currently learning Laravel with React, Flutter, and Django.</p>
+      <!-- User Specifics -->
+      <div class="user">
+        <!-- Technology Stack #1: Languages -->
+        <div class="tech">
+          <h2>Languages</h2>
+          <i class="devicon-python-plain colored"></i>
+          <i class="devicon-unity-plain-wordmark colored"></i>
+          <i class="devicon-dart-plain-wordmark colored"></i>
+          <i class="devicon-javascript-plain colored"></i>
+          <p>
+            These are my go-to languages for web and app development, software
+            engineering, and data analysis.
+          </p>
         </div>
-        <div class="col-lg-6">
-            <h2>Skills</h2>
-            <ul>
-                <li>Laravel</li>
-                <li>React</li>
-                <li>Flutter</li>
-                <li>Django</li>
-                <li>Linux Programming</li>
-            </ul>
+
+        <!-- Technology Stack #2: Front-End -->
+        <div class="tech">
+          <h2>Front-End</h2>
+          <i class="devicon-react-original colored"></i>
+          <i class="devicon-bootstrap-plain-wordmark colored"></i>
+          <i class="devicon-html5-plain-wordmark colored"></i>
+          <i class="devicon-css3-plain-wordmark colored"></i>
+          <p>
+            My preferred technologies for front-end web development and
+            component design.
+          </p>
         </div>
-    </div>
-</section>
 
-<section id="portfolio" class="bg-light py-5">
-    <div class="container text-center">
-        <h2>Portfolio</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Project 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Project 1</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus justo nec felis sollicitudin, vel scelerisque elit vulputate.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Project 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Project 2</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus justo nec felis sollicitudin, vel scelerisque elit vulputate.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Project 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Project 3</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus justo nec felis sollicitudin, vel scelerisque elit vulputate.</p>
-                    </div>
-                </div>
-            </div>
+        <!-- Technology Stack #3: Back-End -->
+        <div class="tech">
+          <h2>Back-End</h2>
+          <i class="devicon-laravel-plain-wordmark colored"></i>
+          <i class="devicon-php-plain colored"></i>
+          <i class="devicon-postgresql-plain-wordmark colored"></i>
+          <i class="devicon-mysql-plain-wordmark colored"></i>
+          <p>
+            My preferred technologies for back-end web programming and database
+            management.
+          </p>
         </div>
-    </div>
-</section>
 
-
-<section id="contact" class="container py-5">
-    <div class="row">
-        <div class="col-lg-6">
-            <h2>Contact</h2>
-            <p>You can reach out to me at:</p>
-            <p>Email: <a href="mailto:tm.aashish1@gmail.com">tm.aashish1@gmail.com</a></p>
-            <p>Website: <a href="https://aashishtimalsina.com.np">aashishtimalsina.com.np</a></p>
+        <!-- Technology Stack #4: Tools -->
+        <div class="tech">
+          <h2>Tools</h2>
+          <i class="devicon-git-plain-wordmark colored"></i>
+          <i class="devicon-visualstudio-plain colored"></i>
+          <i class="devicon-github-plain-wordmark colored"></i>
+          <i class="devicon-docker-plain-wordmark colored"></i>
+          <p>
+            My favorite tools for version control, code editing, and container
+            orchestration.
+          </p>
         </div>
-        <div class="col-lg-6">
-            <!-- Add a contact form or additional contact information here if needed -->
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <!-- <section id="projects">
+      <div class="user-details">
+        <h1>Featured Projects</h1>
+      </div>
+
+       <div class="user-projects">
+        <div class="images-right">
+          <picture>
+            <source type="image/webp" srcset="./assets/img/webp/Personal-Resume-Website.webp" alt="Personal Website" />
+            <img alt="Personal Website" src="./assets/img/jpg/Personal-Resume-Website.jpg" />
+          </picture>
         </div>
-    </div>
-</section>
+        <div class="contents" style="text-align: center">
+          <h3>Personal Website</h3>
+          <div>
+            <img
+              height="32"
+              width="32"
+              src="https://unpkg.com/simple-icons@3.4.0/icons/react.svg"
+              style="filter: invert(73%) sepia(74%) saturate(1552%) hue-rotate(169deg) brightness(109%) contrast(97%)"
+            />
+            &nbsp;
+            <img
+              height="32"
+              width="32"
+              src="https://unpkg.com/simple-icons@3.4.0/icons/bootstrap.svg"
+              style="filter: invert(24%) sepia(14%) saturate(2270%) hue-rotate(222deg) brightness(102%) contrast(90%)"
+            />
+            &nbsp;
+            <img height="32" width="32" src="https://unpkg.com/simple-icons@3.4.0/icons/github.svg" />
+          </div>
+          <p style="text-align: justify">
+            I developed and designed a website using ReactJS and Bootstrap, hosted on Github Pages, to showcase my web
+            presence, story, work experience, education, projects, and achievements in an interactive and
+            visually-appealing format.
+          </p>
+          <a class="project-link" target="_blank" href="https://www.adityavsingh.com/">Check it out!</a>
+        </div>
+      </div>
 
-<footer class="text-center py-3 bg-dark text-white">
-    <p>&copy; 2023 Aashish Timalsina</p>
-</footer>
+       <div class="user-projects">
+        <div class="images-left">
+          <picture>
+            <source type="image/webp" srcset="./assets/img/webp/Perpetual-Crusades.webp" alt="Perpetual Crusades" />
+            <img alt="Perpetual Crusades" src="./assets/img/jpg/Perpetual-Crusades.jpg" />
+          </picture>
+        </div>
+        <div class="contents-right" style="text-align: center">
+          <h3>Perpetual Crusades</h3>
+          <img
+            height="32"
+            width="32"
+            src="https://unpkg.com/simple-icons@3.4.0/icons/react.svg"
+            style="filter: invert(73%) sepia(74%) saturate(1552%) hue-rotate(169deg) brightness(109%) contrast(97%)"
+          />
+          &nbsp;
+          <img
+            height="32"
+            width="32"
+            src="https://unpkg.com/simple-icons@3.4.0/icons/css3.svg"
+            style="filter: invert(33%) sepia(29%) saturate(3844%) hue-rotate(184deg) brightness(90%) contrast(84%)"
+          />
+          &nbsp;
+          <img height="32" width="32" src="https://unpkg.com/simple-icons@3.4.0/icons/github.svg" />
+          <p style="text-align: justify">
+            I created a two-player online dice-based board game with a theme loosely set around Dungeons & Dragons. It
+            was developed as a submission for Penn Apps XXI, using ReactJS and CSS Grid Layouts for design and hosted on
+            GitHub Pages.
+          </p>
+          <a class="project-link" target="_blank" href="https://github.com/AVS1508/Summer-2020-Project"
+            >Check it out!</a
+          >
+        </div>
+      </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+       <div class="user-projects">
+        <div class="images-right">
+          <picture>
+            <source type="image/webp" srcset="./assets/img/webp/COVID19-Tracker-App.webp" alt="COVID-19 Tracker App" />
+            <img alt="COVID-19 Tracker App" src="./assets/img/jpg/COVID19-Tracker-App.jpg" />
+          </picture>
+        </div>
+        <div class="contents" style="text-align: center">
+          <h3>COVID-19 Tracker App</h3>
+          <div>
+            <img
+              height="32"
+              width="32"
+              src="https://unpkg.com/simple-icons@3.4.0/icons/javascript.svg"
+              style="filter: invert(96%) sepia(47%) saturate(4151%) hue-rotate(338deg) brightness(100%) contrast(95%)"
+            />
+          </div>
+          <p style="text-align: justify">
+            I created a web application for tracking the spread of COVID-19. Using Johns Hopkins University Center For
+            Systems Science and Engineering API, the website processes the COVID-19 data to create statistical
+            projections through graphs and charts.
+          </p>
+          <a class="project-link" target="_blank" href="https://www.adityavsingh.com/covid19-tracker-app">
+            Check it out!
+          </a>
+        </div>
+      </div>
+
+       <div class="user-projects">
+        <div class="images-left">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="./assets/img/webp/Valuto-Account-Management.webp"
+              alt="Valuto: Account Management System"
+            />
+            <img alt="Valuto: Account Management System" src="./assets/img/jpg/Valuto-Account-Management.jpg" />
+          </picture>
+        </div>
+        <div class="contents-right" style="text-align: center">
+          <h3>Valuto: Account Management System</h3>
+          <div>
+            <img
+              height="32"
+              width="32"
+              src="https://unpkg.com/simple-icons@3.4.0/icons/cplusplus.svg"
+              style="filter: invert(22%) sepia(77%) saturate(1486%) hue-rotate(183deg) brightness(101%) contrast(103%)"
+            />
+          </div>
+          <p style="text-align: justify">
+            I developed a CLI system for accounting management and financial statement maintenance. The purpose of the
+            system is to maintain a record of the funds received, used, disseminated and donated by an organization.
+            Details of transactions and maintenance of a budget and tallying of current balance/inventory in cash/kind
+            is incorporated in this system.
+          </p>
+          <a class="project-link" target="_blank" href="https://github.com/AVS1508/Valuto-Account-Management-System">
+            Check it out!
+          </a>
+        </div>
+      </div>
+    </section> -->
+
+    <footer class="footer">
+      <p>
+        &copy; Aashish Timalsina <i class="fa fa-heart red"></i>
+        <span id="currentDate"></span>
+      </p>
+    </footer>
+
+    <!-- Import JS: Particles Theme -->
+
+    <script>
+      // Create a new Date object
+      const today = new Date();
+
+      // Format the date as desired (e.g., mm/dd/yyyy or dd/mm/yyyy)
+      const formattedDate = today.getFullYear();
+
+      // Insert the date into the HTML
+      document.getElementById("currentDate").textContent = formattedDate;
+    </script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Import JS: Sweet Scroll -->
+    <script src="./assets/js/sweet-scroll.min.js"></script>
+    <!-- Import JS: Google Analytics -->
+    <script src="./assets/js/google-analytics.js"></script>
+    <!-- Import JS: Main Script -->
+    <script src="./assets/js/main.js"></script>
+  </body>
 </html>
