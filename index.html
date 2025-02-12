@@ -1,339 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Metadata of the Webpage -->
-    <!-- Character-set Metadata -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Viewport Metadata -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Description Metadata-->
-    <meta name="description" content="Portfolio Website" />
-    <!-- Author Metadata -->
-    <meta name="author" content="Aashish Timalsina " />
-    <!-- Keyword Metadata -->
-    <meta
-      name="keywords"
-      content="Aashish, NeeRaj , Aashish Timalsina , Aashish Timalsina  ,Laravel Developer,
-        Aashish Timalsina  Flutter Developer, Aashish Timalsina  ReactJs Developer , Aashish Timalsina  Nepal ,  Aashish Timalsina  Senior Developer , Aashish Timalsina  NASA,
-        Aashish Timalsina App Developer ,ios  ,flutter , ReactJS,laravel , Aashish Timalsina  Website, Python , Fast API, go lang, rust , mysql , postgres, vs-code, nvim, youtube, instagram , Redux, React,
-        Vue, Flask, Django, Sqlite, Photoshop, Lighroom, UI/UX"
-    />
-    <!-- Webpage Logo -->
-    <link rel="shortcut icon" href="./assets/img/favicon.ico" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Aashish Timalsina - Full Stack Developer</title>
+    <meta name="title" content="Aashish Timalsina - Full Stack Developer">
+    <meta name="description" content="Full Stack Developer specializing in Laravel, React, Python and Mobile Development. Experienced in building modern web applications and mobile solutions.">
+    <meta name="keywords" content="Aashish Timalsina, Full Stack Developer, Laravel Developer, React Developer, Python Developer, Mobile App Developer, Web Developer Nepal">
+    <meta name="author" content="Aashish Timalsina">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aashish Timalsina - Full Stack Developer">
+    <meta property="og:description" content="Full Stack Developer specializing in Laravel, React, Python and Mobile Development">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/55835332">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Aashish Timalsina - Full Stack Developer">
+    <meta property="twitter:description" content="Full Stack Developer specializing in Laravel, React, Python and Mobile Development">
+    <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/55835332">
 
-    <!-- Webpage Title -->
-    <title>Aashish Timalsina</title>
+    <!-- Styles and Scripts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+        
+        .slide-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.6s ease-out forwards;
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.95);
+            animation: scaleIn 0.5s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
-    <!-- Import CSS: Main Stylesheet -->
-    <link rel="stylesheet" href="./assets/css/main.css" />
-  </head>
-
-  <body>
-    <div id="particles-js">
-      <div class="header">
-        <h1>
-          <span class="site-title">Aashish Timalsina </span>
-          <span class="site-description"
-            >Programmer • Web Developer • App Developer • AI/ML • Data
-            Science</span
-          >
-        </h1>
-        <div class="header-icons">
-          <a
-            aria-label="My LinkedIn Profile"
-            target="_blank"
-            href="https://www.linkedin.com/in/aashishtimalsina/"
-          >
-            <i class="icon fa fa-linkedin" aria-hidden="true"></i>
-          </a>
-          <a
-            aria-label="My Github Profile"
-            target="_blank"
-            href="https://github.com/aashishtimalsina"
-          >
-            <i class="icon fa fa-github-alt" aria-hidden="true"></i>
-          </a>
-          <a aria-label="My Résumé" target="_blank" href="./assets/cv/cv.pdf">
-            <i class="icon fa fa fa-file-pdf-o" aria-hidden="true"></i>
-          </a>
-          <a
-            aria-label="Send Email"
-            href="mailto:tm.aashish1@gmail.com"
-            target="_blank"
-            ><i class="icon fa fa-envelope"></i
-          ></a>
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-gray-800 fade-in">AT</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 fade-in" style="animation-delay: 0.2s">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 fade-in" style="animation-delay: 0.3s">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 fade-in" style="animation-delay: 0.4s">Skills</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 fade-in" style="animation-delay: 0.5s">Contact</a>
+                </div>
+            </div>
         </div>
-        <div class="header-links">
-          <a class="link" href="#about" data-scroll>About Me</a>
-          <!-- <a class="link" href="#projects" data-scroll>Projects</a> -->
-        </div>
-      </div>
-      <a class="down" href="#about" data-scroll
-        ><i class="icon fa fa-chevron-down" aria-hidden="true"></i
-      ></a>
-    </div>
+    </nav>
 
-    <!-- About Section -->
-    <section id="about">
-      <!-- User Introduction-->
-      <div class="user-details">
-        <h1>My Story</h1>
-        <picture>
-          <source
-            type="image/webp"
-            srcset="https://avatars.githubusercontent.com/u/55835332"
-            alt="Aashish Timaslina"
-            width="20%"
-            style="border-radius: 50%"
-          />
-          <img
-            src="https://avatars.githubusercontent.com/u/55835332"
-            alt="Aashish Timaslina"
-            width="20%"
-            style="border-radius: 50%"
-          />
-        </picture>
-        <p>
-          I am Aashish Timalsina, currently pursuing a
-          <strong
-            >BSc CSIT (Bachelor of Science in Computer Science and Information
-            Technology)</strong
-          >
-          at <strong>NIST Banepa</strong>. As a full-stack developer, I have
-          strong expertise in
-          <strong>Laravel, Python Django, FastAPI, and React.js</strong>.
-          Additionally, I am also working on
-          <strong>mobile app development</strong>. I am passionate about
-          expanding my knowledge and skills, with future goals of exploring the
-          realms of <strong>AI</strong> and emerging technologies.
-        </p>
-      </div>
-
-      <!-- User Specifics -->
-      <div class="user">
-        <!-- Technology Stack #1: Languages -->
-        <div class="tech">
-          <h2>Languages</h2>
-          <i class="devicon-python-plain colored"></i>
-          <i class="devicon-unity-plain-wordmark colored"></i>
-          <i class="devicon-dart-plain-wordmark colored"></i>
-          <i class="devicon-javascript-plain colored"></i>
-          <p>
-            These are my go-to languages for web and app development, software
-            engineering, and data analysis.
-          </p>
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 slide-up" style="animation-delay: 0.3s">
+                        Hi, I'm Aashish Timalsina
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 slide-up" style="animation-delay: 0.5s">
+                        Full Stack Developer specializing in Laravel, React, Python and Mobile Development
+                    </p>
+                    <div class="flex space-x-4 slide-up" style="animation-delay: 0.7s">
+                        <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition hover-scale">
+                            Contact Me
+                        </a>
+                        <a href="./assets/cv/cv.pdf" class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition hover-scale">
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center scale-in" style="animation-delay: 0.8s">
+                    <img src="https://avatars.githubusercontent.com/u/55835332" alt="Aashish Timalsina" class="rounded-full w-64 h-64 object-cover shadow-xl hover-scale">
+                </div>
+            </div>
         </div>
-
-        <!-- Technology Stack #2: Front-End -->
-        <div class="tech">
-          <h2>Front-End</h2>
-          <i class="devicon-react-original colored"></i>
-          <i class="devicon-bootstrap-plain-wordmark colored"></i>
-          <i class="devicon-html5-plain-wordmark colored"></i>
-          <i class="devicon-css3-plain-wordmark colored"></i>
-          <p>
-            My preferred technologies for front-end web development and
-            component design.
-          </p>
-        </div>
-
-        <!-- Technology Stack #3: Back-End -->
-        <div class="tech">
-          <h2>Back-End</h2>
-          <i class="devicon-laravel-plain-wordmark colored"></i>
-          <i class="devicon-php-plain colored"></i>
-          <i class="devicon-postgresql-plain-wordmark colored"></i>
-          <i class="devicon-mysql-plain-wordmark colored"></i>
-          <p>
-            My preferred technologies for back-end web programming and database
-            management.
-          </p>
-        </div>
-
-        <!-- Technology Stack #4: Tools -->
-        <div class="tech">
-          <h2>Tools</h2>
-          <i class="devicon-git-plain-wordmark colored"></i>
-          <i class="devicon-visualstudio-plain colored"></i>
-          <i class="devicon-github-plain-wordmark colored"></i>
-          <i class="devicon-docker-plain-wordmark colored"></i>
-          <p>
-            My favorite tools for version control, code editing, and container
-            orchestration.
-          </p>
-        </div>
-      </div>
     </section>
 
-    <!-- Projects Section -->
-    <!-- <section id="projects">
-      <div class="user-details">
-        <h1>Featured Projects</h1>
-      </div>
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12 slide-up">About Me</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8 scale-in hover-scale">
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    I am currently pursuing a BSc CSIT at NIST Banepa, where I've developed a strong foundation in computer science and software development. As a full-stack developer, I specialize in Laravel, Python Django, FastAPI, and React.js. My passion extends to mobile app development, and I'm actively exploring the exciting fields of AI and emerging technologies.
+                </p>
+            </div>
+        </div>
+    </section>
 
-       <div class="user-projects">
-        <div class="images-right">
-          <picture>
-            <source type="image/webp" srcset="./assets/img/webp/Personal-Resume-Website.webp" alt="Personal Website" />
-            <img alt="Personal Website" src="./assets/img/jpg/Personal-Resume-Website.jpg" />
-          </picture>
-        </div>
-        <div class="contents" style="text-align: center">
-          <h3>Personal Website</h3>
-          <div>
-            <img
-              height="32"
-              width="32"
-              src="https://unpkg.com/simple-icons@3.4.0/icons/react.svg"
-              style="filter: invert(73%) sepia(74%) saturate(1552%) hue-rotate(169deg) brightness(109%) contrast(97%)"
-            />
-            &nbsp;
-            <img
-              height="32"
-              width="32"
-              src="https://unpkg.com/simple-icons@3.4.0/icons/bootstrap.svg"
-              style="filter: invert(24%) sepia(14%) saturate(2270%) hue-rotate(222deg) brightness(102%) contrast(90%)"
-            />
-            &nbsp;
-            <img height="32" width="32" src="https://unpkg.com/simple-icons@3.4.0/icons/github.svg" />
-          </div>
-          <p style="text-align: justify">
-            I developed and designed a website using ReactJS and Bootstrap, hosted on Github Pages, to showcase my web
-            presence, story, work experience, education, projects, and achievements in an interactive and
-            visually-appealing format.
-          </p>
-          <a class="project-link" target="_blank" href="https://www.aashishtimalsina.com.np/">Check it out!</a>
-        </div>
-      </div>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12 slide-up">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Languages -->
+                <div class="bg-white rounded-xl shadow-lg p-6 scale-in hover-scale" style="animation-delay: 0.2s">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Languages</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-python text-2xl text-blue-500"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-js text-2xl text-yellow-500"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-php text-2xl text-purple-500"></i>
+                            <span>PHP</span>
+                        </div>
+                    </div>
+                </div>
 
-       <div class="user-projects">
-        <div class="images-left">
-          <picture>
-            <source type="image/webp" srcset="./assets/img/webp/Perpetual-Crusades.webp" alt="Perpetual Crusades" />
-            <img alt="Perpetual Crusades" src="./assets/img/jpg/Perpetual-Crusades.jpg" />
-          </picture>
-        </div>
-        <div class="contents-right" style="text-align: center">
-          <h3>Perpetual Crusades</h3>
-          <img
-            height="32"
-            width="32"
-            src="https://unpkg.com/simple-icons@3.4.0/icons/react.svg"
-            style="filter: invert(73%) sepia(74%) saturate(1552%) hue-rotate(169deg) brightness(109%) contrast(97%)"
-          />
-          &nbsp;
-          <img
-            height="32"
-            width="32"
-            src="https://unpkg.com/simple-icons@3.4.0/icons/css3.svg"
-            style="filter: invert(33%) sepia(29%) saturate(3844%) hue-rotate(184deg) brightness(90%) contrast(84%)"
-          />
-          &nbsp;
-          <img height="32" width="32" src="https://unpkg.com/simple-icons@3.4.0/icons/github.svg" />
-          <p style="text-align: justify">
-            I created a two-player online dice-based board game with a theme loosely set around Dungeons & Dragons. It
-            was developed as a submission for Penn Apps XXI, using ReactJS and CSS Grid Layouts for design and hosted on
-            GitHub Pages.
-          </p>
-          <a class="project-link" target="_blank" href="https://github.com/AVS1508/Summer-2020-Project"
-            >Check it out!</a
-          >
-        </div>
-      </div>
+                <!-- Frontend -->
+                <div class="bg-white rounded-xl shadow-lg p-6 scale-in hover-scale" style="animation-delay: 0.3s">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Frontend</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-react text-2xl text-blue-400"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-html5 text-2xl text-orange-500"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-css3-alt text-2xl text-blue-500"></i>
+                            <span>CSS3</span>
+                        </div>
+                    </div>
+                </div>
 
-       <div class="user-projects">
-        <div class="images-right">
-          <picture>
-            <source type="image/webp" srcset="./assets/img/webp/COVID19-Tracker-App.webp" alt="COVID-19 Tracker App" />
-            <img alt="COVID-19 Tracker App" src="./assets/img/jpg/COVID19-Tracker-App.jpg" />
-          </picture>
-        </div>
-        <div class="contents" style="text-align: center">
-          <h3>COVID-19 Tracker App</h3>
-          <div>
-            <img
-              height="32"
-              width="32"
-              src="https://unpkg.com/simple-icons@3.4.0/icons/javascript.svg"
-              style="filter: invert(96%) sepia(47%) saturate(4151%) hue-rotate(338deg) brightness(100%) contrast(95%)"
-            />
-          </div>
-          <p style="text-align: justify">
-            I created a web application for tracking the spread of COVID-19. Using Johns Hopkins University Center For
-            Systems Science and Engineering API, the website processes the COVID-19 data to create statistical
-            projections through graphs and charts.
-          </p>
-          <a class="project-link" target="_blank" href="https://www.aashishtimalsina.com.np/covid19-tracker-app">
-            Check it out!
-          </a>
-        </div>
-      </div>
+                <!-- Backend -->
+                <div class="bg-white rounded-xl shadow-lg p-6 scale-in hover-scale" style="animation-delay: 0.4s">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Backend</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-laravel text-2xl text-red-500"></i>
+                            <span>Laravel</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-database text-2xl text-blue-500"></i>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-server text-2xl text-green-500"></i>
+                            <span>FastAPI</span>
+                        </div>
+                    </div>
+                </div>
 
-       <div class="user-projects">
-        <div class="images-left">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="./assets/img/webp/Valuto-Account-Management.webp"
-              alt="Valuto: Account Management System"
-            />
-            <img alt="Valuto: Account Management System" src="./assets/img/jpg/Valuto-Account-Management.jpg" />
-          </picture>
+                <!-- Tools -->
+                <div class="bg-white rounded-xl shadow-lg p-6 scale-in hover-scale" style="animation-delay: 0.5s">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Tools</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-git-alt text-2xl text-orange-500"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-docker text-2xl text-blue-500"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fab fa-github text-2xl text-gray-800"></i>
+                            <span>GitHub</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="contents-right" style="text-align: center">
-          <h3>Valuto: Account Management System</h3>
-          <div>
-            <img
-              height="32"
-              width="32"
-              src="https://unpkg.com/simple-icons@3.4.0/icons/cplusplus.svg"
-              style="filter: invert(22%) sepia(77%) saturate(1486%) hue-rotate(183deg) brightness(101%) contrast(103%)"
-            />
-          </div>
-          <p style="text-align: justify">
-            I developed a CLI system for accounting management and financial statement maintenance. The purpose of the
-            system is to maintain a record of the funds received, used, disseminated and donated by an organization.
-            Details of transactions and maintenance of a budget and tallying of current balance/inventory in cash/kind
-            is incorporated in this system.
-          </p>
-          <a class="project-link" target="_blank" href="https://github.com/AVS1508/Valuto-Account-Management-System">
-            Check it out!
-          </a>
-        </div>
-      </div>
-    </section> -->
+    </section>
 
-    <footer class="footer">
-      <p>
-        &copy; Aashish Timalsina <i class="fa fa-heart red"></i>
-        <span id="currentDate"></span>
-      </p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12 slide-up">Get In Touch</h2>
+            <div class="flex flex-col items-center space-y-6 scale-in">
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/aashishtimalsina/" target="_blank" class="text-blue-600 hover:text-blue-700 hover-scale">
+                        <i class="fab fa-linkedin text-4xl"></i>
+                    </a>
+                    <a href="https://github.com/aashishtimalsina" target="_blank" class="text-gray-800 hover:text-gray-900 hover-scale">
+                        <i class="fab fa-github text-4xl"></i>
+                    </a>
+                    <a href="mailto:tm.aashish1@gmail.com" class="text-red-600 hover:text-red-700 hover-scale">
+                        <i class="fas fa-envelope text-4xl"></i>
+                    </a>
+                </div>
+                <p class="text-gray-600">tm.aashish1@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <p>&copy; <span id="currentYear"></span> Aashish Timalsina. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- Import JS: Particles Theme -->
-
     <script>
-      // Create a new Date object
-      const today = new Date();
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-      // Format the date as desired (e.g., mm/dd/yyyy or dd/mm/yyyy)
-      const formattedDate = today.getFullYear();
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.visibility = 'visible';
+                    entry.target.style.animationDelay = entry.target.dataset.delay || '0s';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
 
-      // Insert the date into the HTML
-      document.getElementById("currentDate").textContent = formattedDate;
+        // Observe all animated elements
+        document.querySelectorAll('.slide-up, .scale-in').forEach((el) => {
+            el.style.visibility = 'hidden';
+            observer.observe(el);
+        });
     </script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <!-- Import JS: Sweet Scroll -->
-    <script src="./assets/js/sweet-scroll.min.js"></script>
-    <!-- Import JS: Google Analytics -->
-    <script src="./assets/js/google-analytics.js"></script>
-    <!-- Import JS: Main Script -->
-    <script src="./assets/js/main.js"></script>
-  </body>
+</body>
 </html>
