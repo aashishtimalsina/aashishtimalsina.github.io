@@ -1,141 +1,146 @@
+import React, { useEffect, useState } from "react";
+import { CheckCircle, Code, Database, Layout } from "lucide-react";
 
-import React, { useEffect, useRef } from 'react';
-import { Code, Server, Layout, Smartphone } from 'lucide-react';
-import { cn } from '@/lib/utils';
-
-const About: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const skillsRef = useRef<HTMLDivElement>(null);
+export default function About() {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
-            observer.unobserve(entry.target);
-          }
-        });
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
       },
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    const section = document.getElementById("about");
+    if (section) observer.observe(section);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (section) observer.unobserve(section);
     };
   }, []);
 
+  // Skills with detailed descriptions for better SEO
   const skills = [
     {
-      category: 'Frontend',
-      icon: <Layout className="h-6 w-6" />,
-      skills: ['React', 'Vue.js', 'JavaScript/TypeScript', 'HTML/CSS', 'Tailwind CSS', 'SCSS'],
+      icon: <Layout className="h-10 w-10 mb-4 text-primary" />,
+      title: "Frontend Development",
+      description:
+        "Building responsive, accessible, and performant user interfaces using React, TypeScript, and modern CSS frameworks like Tailwind CSS.",
     },
     {
-      category: 'Backend',
-      icon: <Server className="h-6 w-6" />,
-      skills: ['Laravel', 'Django', 'Fast API', 'Node.js', 'PHP', 'MySQL', 'PostgreSQL'],
+      icon: <Database className="h-10 w-10 mb-4 text-primary" />,
+      title: "Backend Development",
+      description:
+        "Creating scalable and secure server-side applications with Node.js, Laravel, Django, and RESTful API design practices.",
     },
     {
-      category: 'Mobile',
-      icon: <Smartphone className="h-6 w-6" />,
-      skills: ['Flutter', 'React Native', 'iOS', 'Android'],
-    },
-    {
-      category: 'Others',
-      icon: <Code className="h-6 w-6" />,
-      skills: ['Git', 'Docker', 'AWS', 'CI/CD', 'RESTful APIs', 'GraphQL'],
+      icon: <Code className="h-10 w-10 mb-4 text-primary" />,
+      title: "Mobile Development",
+      description:
+        "Developing cross-platform mobile applications using Flutter, React Native, and native Android development with Kotlin.",
     },
   ];
 
   return (
     <section
       id="about"
-      ref={sectionRef}
-      className="section-padding container-padding opacity-0"
+      className={`py-16 md:py-24 bg-muted/50 transition-opacity duration-1000 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+      aria-labelledby="about-heading"
+      itemScope
+      itemType="https://schema.org/AboutPage"
     >
-      <div className="container mx-auto">
-        <div className="flex flex-col items-center mb-16">
+      <div className="container mx-auto px-4">
+        <div className="max-w-2xl mx-auto text-center mb-12">
           <div className="inline-block rounded-full px-3 py-1 border border-border text-sm font-medium mb-4">
             About Me
           </div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-center">
+          <h2
+            id="about-heading"
+            className="text-3xl md:text-4xl font-display font-bold text-center"
+            itemProp="name"
+          >
             My Journey & Expertise
           </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+          <div className="space-y-6" itemProp="mainContentOfPage">
             <p className="text-lg">
-              I'm Aashish Timalsina, a passionate Full Stack Developer with 4 years of experience 
-              crafting web and mobile solutions. Based in Banepa, Nepal, I specialize in building 
-              applications that combine elegant interfaces with powerful functionality.
+              I'm{" "}
+              <span itemProp="about">
+                Aashish Timalsina, a passionate Full Stack Developer with 4
+                years of experience crafting web and mobile solutions. Based in
+                Banepa, Nepal, I specialize in building applications that
+                combine elegant interfaces with powerful functionality.
+              </span>
             </p>
             <p>
-              My journey in software development has led me through various technologies and 
-              frameworks, allowing me to develop a versatile skill set across the entire development 
-              stack. I'm particularly experienced in Laravel, React, Python, and mobile development.
+              My journey in software development has led me through various
+              technologies and frameworks, allowing me to develop a versatile
+              skill set across the entire development stack. I'm particularly
+              experienced in Laravel, React, Python, and mobile development.
             </p>
             <p>
-              Currently, I'm focused on expanding my expertise in Flutter, Rust, and Fast API 
-              while continuing to perfect my skills in my core technologies.
-            </p>
-            <p>
-              When I'm not coding, you'll find me hiking and exploring new places, which helps 
-              me maintain a fresh perspective and creative approach to problem-solving.
+              Beyond coding, I value clean architecture, performance
+              optimization, and accessible design. I believe in creating
+              solutions that not only work flawlessly but are also maintainable
+              and scalable for future growth.
             </p>
             <div className="pt-4">
-              <a 
-                href="#contact" 
-                className="animated-border-button inline-flex items-center text-primary font-medium"
-              >
-                Let's Connect
-                <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
+              <ul className="grid grid-cols-2 gap-x-2 gap-y-3">
+                {[
+                  "JavaScript/TypeScript",
+                  "React.js",
+                  "Node.js",
+                  "Laravel",
+                  "Python",
+                  "Flutter",
+                ].map((skill) => (
+                  <li
+                    key={skill}
+                    className="flex items-center"
+                    itemProp="knowsAbout"
+                  >
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
+                    <span>{skill}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-
-          <div ref={skillsRef} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {skills.map((skillGroup, index) => (
-              <div 
-                key={skillGroup.category} 
-                className={cn(
-                  "glassmorphism rounded-xl p-6 transition-all hover:shadow-lg",
-                  "opacity-0 animate-fade-in",
-                  { "animation-delay-300": index === 1 || index === 3 },
-                  { "animation-delay-150": index === 2 || index === 0 }
-                )}
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <div className="flex items-center mb-4">
-                  <div className="p-2 rounded-md bg-secondary mr-3">
-                    {skillGroup.icon}
+          <div>
+            <div className="bg-card border border-border rounded-lg p-6 md:p-8 shadow-sm">
+              <h3 className="text-xl font-bold mb-6">
+                Core Areas of Expertise
+              </h3>
+              <div className="space-y-8">
+                {skills.map((skill, index) => (
+                  <div key={index} itemProp="specialty">
+                    <div className="flex flex-col items-center md:items-start">
+                      {skill.icon}
+                      <h4 className="text-lg font-medium mb-2" itemProp="name">
+                        {skill.title}
+                      </h4>
+                      <p
+                        className="text-muted-foreground text-center md:text-left"
+                        itemProp="description"
+                      >
+                        {skill.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-display font-semibold text-lg">{skillGroup.category}</h3>
-                </div>
-                <ul className="space-y-2">
-                  {skillGroup.skills.map((skill) => (
-                    <li key={skill} className="flex items-center">
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary mr-2"></span>
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}

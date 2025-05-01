@@ -1,86 +1,124 @@
-
-import React, { useEffect, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import React, { useEffect, useState } from "react";
+import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
 
 const Hero: React.FC = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Show the hero section with a slight delay
     const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
+      setIsVisible(true);
+    }, 300);
+
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section 
-      id="home" 
-      className="min-h-screen flex items-center pt-28 container-padding"
+    <section
+      id="hero"
+      className="min-h-screen flex items-center py-16"
+      itemScope
+      itemType="https://schema.org/Person"
     >
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div className={cn(
-            'space-y-6 opacity-0',
-            isLoaded && 'animate-fade-in'
-          )}>
-            <div className="inline-block rounded-full px-3 py-1 border border-border bg-background/50 text-sm font-medium">
-              Full Stack Developer
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div
+            className={`space-y-6 transition-all duration-1000 delay-300 transform ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-12"
+            }`}
+          >
+            <div className="inline-block rounded-full px-3 py-1 bg-primary/10 text-primary text-sm font-medium">
+              <span itemProp="jobTitle">Full Stack Developer</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
-              Crafting Digital <br />
-              <span className="text-primary">Experiences</span>
+              Hi, I'm{" "}
+              <span className="text-primary" itemProp="name">
+                Aashish Timalsina
+              </span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-lg">
-              I specialize in Laravel, React, Python, and Mobile Development, with 4 years of experience building elegant applications that solve real-world problems.
+            <p className="text-xl text-muted-foreground" itemProp="description">
+              I build exceptional digital experiences that are fast, accessible,
+              and visually appealing. Specializing in modern web and mobile
+              development with a focus on performance and usability.
             </p>
-            <div className="pt-4 flex flex-col sm:flex-row gap-4">
-              <a 
-                href="#projects" 
-                className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium transition-all hover:bg-primary/90"
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg font-medium hover:bg-primary/90 transition-colors"
               >
-                View My Work
-                <ArrowRight className="ml-2 h-4 w-4" />
+                View Projects <ArrowRight className="h-4 w-4" />
               </a>
-              <a 
-                href="#contact" 
-                className="inline-flex items-center justify-center px-6 py-3 rounded-md border border-input bg-background hover:bg-accent transition-colors font-medium"
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-5 py-2.5 rounded-lg font-medium hover:bg-secondary/80 transition-colors"
               >
                 Contact Me
               </a>
             </div>
-            <div className="pt-6">
-              <p className="text-sm text-muted-foreground">
-                Currently open to freelance opportunities and collaboration
-              </p>
+            <div className="pt-4 flex items-center gap-4">
+              <a
+                href="https://github.com/aashishtimalsina"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Visit Aashish's GitHub profile"
+                itemProp="sameAs"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a
+                href="https://twitter.com/AashishTimalina"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Visit Aashish's Twitter profile"
+                itemProp="sameAs"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/aashishtimalsina"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Visit Aashish's LinkedIn profile"
+                itemProp="sameAs"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <meta
+                itemProp="url"
+                content="https://www.aashishtimalsina.com.np"
+              />
+              <meta itemProp="addressLocality" content="Banepa" />
+              <meta itemProp="addressRegion" content="Nepal" />
             </div>
           </div>
-          
-          <div className={cn(
-            'relative mx-auto opacity-0',
-            isLoaded && 'animate-fade-in-delayed'
-          )}>
-            <div className="bg-gradient-to-tr from-secondary/50 to-background absolute inset-0 rounded-2xl -rotate-6"></div>
-            <div className="bg-gradient-to-bl from-muted/50 to-background absolute inset-0 rounded-2xl rotate-3"></div>
-            <div className="relative overflow-hidden rounded-xl border border-border shadow-lg bg-card">
-              <img
-                src="/lovable-uploads/96d7a9a4-ba3f-41dd-802f-7a4ec378beeb.png"
-                alt="Aashish Timalsina"
-                className="w-full object-cover aspect-[4/3]"
-                onLoad={(e) => {
-                  const img = e.target as HTMLImageElement;
-                  img.classList.remove('image-loading');
-                  img.classList.add('image-loaded');
-                }}
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-background/10 backdrop-blur-xs"></div>
-              <div className="absolute inset-0 flex items-end p-6">
-                <div className="glassmorphism rounded-lg p-4 max-w-xs">
-                  <p className="text-base font-medium">
-                    "I believe great software is a perfect balance of performance, design, and user experience."
-                  </p>
-                </div>
+
+          <div
+            className={`relative transition-all duration-1000 delay-700 transform ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-12"
+            }`}
+          >
+            <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-secondary/20 p-2">
+              <div className="w-full h-full rounded-xl overflow-hidden bg-muted flex items-center justify-center">
+                <img
+                  src="https://avatars.githubusercontent.com/u/55835332"
+                  alt="Aashish Timalsina - Full Stack Developer"
+                  className="w-full h-full object-cover object-center"
+                  itemProp="image"
+                  loading="eager"
+                />
+              </div>
+            </div>
+            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-primary rounded-full grid place-items-center text-primary-foreground">
+              <div className="text-center">
+                <div className="text-xl font-bold">4+</div>
+                <div className="text-xs">Years Exp.</div>
               </div>
             </div>
           </div>

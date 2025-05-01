@@ -1,214 +1,196 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, FileText } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { useEffect, useState } from "react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
-const Contact: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
-      
-      setFormData({
-        name: '',
-        email: '',
-        message: '',
-      });
-      setIsSubmitting(false);
-    }, 1500);
-  };
+export default function Contact() {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
-            observer.unobserve(entry.target);
-          }
-        });
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
       },
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    const section = document.getElementById("contact");
+    if (section) observer.observe(section);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (section) observer.unobserve(section);
     };
   }, []);
 
-  const contactInfo = [
-    { icon: <Mail className="h-5 w-5" />, label: 'Email', value: 'tm.aashish1@gmail.com', href: 'mailto:tm.aashish1@gmail.com' },
-    { icon: <Phone className="h-5 w-5" />, label: 'Phone', value: '+977 9848077880', href: 'tel:+9779848077880' },
-    { icon: <MapPin className="h-5 w-5" />, label: 'Location', value: 'Banepa, Kavre, Nepal', href: 'https://maps.google.com/?q=Banepa,Kavre,Nepal' },
-  ];
-
-  const socialLinks = [
-    { icon: <Github className="h-5 w-5" />, label: 'GitHub', href: 'https://github.com/aashishtimalsina' },
-    { icon: <Linkedin className="h-5 w-5" />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/aashish-timalsina-4b8156206/' },
-    { icon: <FileText className="h-5 w-5" />, label: 'Medium', href: 'https://medium.com/@tm.aashish1' },
-  ];
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Form submission logic
+  };
 
   return (
     <section
       id="contact"
-      ref={sectionRef}
-      className="section-padding container-padding bg-secondary/30 opacity-0"
+      className={`py-16 md:py-24 transition-opacity duration-1000 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+      itemScope
+      itemType="https://schema.org/ContactPage"
     >
-      <div className="container mx-auto">
-        <div className="flex flex-col items-center mb-16">
+      <div className="container mx-auto px-4">
+        <div className="max-w-2xl mx-auto text-center mb-12">
           <div className="inline-block rounded-full px-3 py-1 border border-border text-sm font-medium mb-4">
             Get In Touch
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-center">
-            Let's Work Together
+            Contact Me
           </h2>
+          <p className="mt-4 text-muted-foreground max-w-lg mx-auto">
+            Have a project in mind or want to discuss opportunities? I'd love to
+            hear from you. Feel free to reach out using the form below or
+            through my contact details.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <p className="text-lg">
-              I'm currently available for freelance work and exciting collaborations. 
-              If you have a project that needs my expertise, or if you just want to 
-              say hello, feel free to reach out!
-            </p>
-            
-            <div className="space-y-6">
-              {contactInfo.map((item) => (
-                <a 
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-4 p-4 rounded-lg border border-border bg-card hover:bg-accent transition-colors"
-                >
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">{item.label}</p>
-                    <p className="font-medium">{item.value}</p>
-                  </div>
-                </a>
-              ))}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="lg:col-span-2 space-y-8">
+            <div
+              className="flex items-start space-x-4"
+              itemScope
+              itemType="https://schema.org/PostalAddress"
+            >
+              <div className="bg-primary/10 p-3 rounded-lg text-primary">
+                <MapPin className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="font-medium">Location</h3>
+                <p className="text-muted-foreground mt-1">
+                  <span itemProp="addressLocality">Banepa</span>,
+                  <span itemProp="addressRegion">Nepal</span>
+                </p>
+              </div>
             </div>
-            
-            <div>
-              <h3 className="text-lg font-display font-semibold mb-4">Follow Me</h3>
-              <div className="flex space-x-4">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 rounded-full bg-card border border-border hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label={link.label}
-                  >
-                    {link.icon}
-                  </a>
-                ))}
+
+            <div className="flex items-start space-x-4">
+              <div className="bg-primary/10 p-3 rounded-lg text-primary">
+                <Mail className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="font-medium">Email</h3>
+                <a
+                  href="mailto:contact@aashishtimalsina.com.np"
+                  className="text-muted-foreground hover:text-primary transition-colors mt-1 block"
+                  itemProp="email"
+                >
+                  contact@aashishtimalsina.com.np
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="bg-primary/10 p-3 rounded-lg text-primary">
+                <Phone className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="font-medium">Phone</h3>
+                <a
+                  href="tel:+9779841234567"
+                  className="text-muted-foreground hover:text-primary transition-colors mt-1 block"
+                  itemProp="telephone"
+                >
+                  +977-9841234567
+                </a>
               </div>
             </div>
           </div>
-          
-          {/* Contact Form */}
-          <div className="glassmorphism rounded-xl p-6 md:p-8">
-            <h3 className="text-xl font-display font-semibold mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
+
+          <div className="lg:col-span-3">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-card border border-border rounded-lg p-6 shadow-sm"
+              itemProp="potentialAction"
+              itemScope
+              itemType="https://schema.org/CommunicateAction"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    aria-required="true"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    aria-required="true"
+                  />
+                </div>
+              </div>
+              <div className="mb-6">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Subject
                 </label>
                 <input
-                  id="name"
-                  name="name"
                   type="text"
-                  value={formData.name}
-                  onChange={handleChange}
+                  id="subject"
+                  name="subject"
                   required
-                  className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring focus:border-input"
-                  placeholder="Your name"
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  aria-required="true"
                 />
               </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring focus:border-input"
-                  placeholder="Your email"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
+              <div className="mb-6">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Your Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
                   rows={5}
-                  className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring focus:border-input resize-none"
-                  placeholder="Your message"
+                  required
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  aria-required="true"
                 ></textarea>
               </div>
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full inline-flex justify-center items-center px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium transition-all hover:bg-primary/90 disabled:opacity-70"
+                className="w-full bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors hover:bg-primary/90"
+                aria-label="Send message"
               >
-                {isSubmitting ? (
-                  <>
-                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Sending...
-                  </>
-                ) : (
-                  'Send Message'
-                )}
+                Send Message
               </button>
+              <meta itemProp="name" content="Contact Aashish Timalsina" />
+              <meta itemProp="object" content="Contact Inquiry" />
             </form>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}
