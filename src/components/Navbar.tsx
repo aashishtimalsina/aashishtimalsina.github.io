@@ -1,8 +1,7 @@
-
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import ThemeToggle from './ThemeToggle';
+import React, { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,43 +20,43 @@ const Navbar: React.FC = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' },
-    { name: 'Blog', href: '/blog' },
+    { name: "Home", href: "/" },
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Experience", href: "#experience" },
+    { name: "Contact", href: "#contact" },
+    { name: "Blog", href: "/blog" },
   ];
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 w-full py-4 z-50 transition-all duration-300 ease-in-out dark:border-b dark:border-border/10',
-        isScrolled 
-          ? 'dark:bg-background/80 backdrop-blur-md py-3' 
-          : 'bg-transparent dark:bg-transparent py-5'
+        "fixed top-0 left-0 w-full py-4 z-50 transition-all duration-300 ease-in-out dark:border-b dark:border-border/10",
+        isScrolled
+          ? "dark:bg-background/80 backdrop-blur-md py-3"
+          : "bg-transparent dark:bg-transparent py-5"
       )}
     >
       <div className="container mx-auto container-padding">
         <div className="flex items-center justify-between">
-          <a 
-            href="#home" 
+          <a
+            href="#home"
             className="text-xl font-display font-medium tracking-tight"
           >
             Aashish Timalsina
@@ -94,8 +93,8 @@ const Navbar: React.FC = () => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          'fixed inset-0 top-[65px] bg-background dark:bg-background z-40 transform transition-transform duration-300 ease-in-out md:hidden',
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          "fixed inset-0 top-[65px] bg-background dark:bg-background z-40 transform transition-transform duration-300 ease-in-out md:hidden",
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <div className="container mx-auto container-padding py-8">
