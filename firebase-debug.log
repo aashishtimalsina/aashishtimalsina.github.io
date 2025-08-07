@@ -1,0 +1,65 @@
+[debug] [2025-08-07T05:24:55.881Z] ----------------------------------------------------------------------
+[debug] [2025-08-07T05:24:55.883Z] Command:       /usr/bin/node /usr/bin/firebase init hosting
+[debug] [2025-08-07T05:24:55.883Z] CLI Version:   14.12.0
+[debug] [2025-08-07T05:24:55.883Z] Platform:      linux
+[debug] [2025-08-07T05:24:55.884Z] Node Version:  v24.5.0
+[debug] [2025-08-07T05:24:55.884Z] Time:          Thu Aug 07 2025 11:09:55 GMT+0545 (Nepal Time)
+[debug] [2025-08-07T05:24:55.884Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-08-07T05:24:56.100Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-07T05:24:56.100Z] > authorizing via signed-in user (tm.aashish1@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/btwaashish/Desktop/Project/aashish/aashishtimalsina.github.io
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-08-07T05:24:56.104Z] Using project from CLI flag: blog-afbe3
+[debug] [2025-08-07T05:24:56.106Z] Checked if tokens are valid: true, expires at: 1754547205103
+[debug] [2025-08-07T05:24:56.106Z] Checked if tokens are valid: true, expires at: 1754547205103
+[debug] [2025-08-07T05:24:56.108Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blog-afbe3 [none]
+[debug] [2025-08-07T05:24:56.750Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/blog-afbe3 200
+[debug] [2025-08-07T05:24:56.750Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/blog-afbe3 {"projectId":"blog-afbe3","projectNumber":"64372065181","displayName":"Blog ","name":"projects/blog-afbe3","resources":{"hostingSite":"blog-afbe3"},"state":"ACTIVE","etag":"1_03e46160-71b6-4c0e-bb54-ca4934334c5e"}
+[info] i  Using project blog-afbe3 (Blog ) 
+[info] 
+=== Hosting Setup
+[debug] [2025-08-07T05:24:57.153Z] Checked if tokens are valid: true, expires at: 1754547205103
+[debug] [2025-08-07T05:24:57.153Z] Checked if tokens are valid: true, expires at: 1754547205103
+[debug] [2025-08-07T05:24:57.153Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blog-afbe3 [none]
+[debug] [2025-08-07T05:24:57.554Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/blog-afbe3 200
+[debug] [2025-08-07T05:24:57.554Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/blog-afbe3 {"projectId":"blog-afbe3","projectNumber":"64372065181","displayName":"Blog ","name":"projects/blog-afbe3","resources":{"hostingSite":"blog-afbe3"},"state":"ACTIVE","etag":"1_03e46160-71b6-4c0e-bb54-ca4934334c5e"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2025-08-07T05:25:05.339Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2025-08-07T05:25:05.655Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2025-08-07T05:25:05.655Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"12.0.0","browserURL":"https://www.gstatic.com/firebasejs/12.0.0/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/12.0.0/firebase.tgz"},"live":{"version":"12.0","browserURL":"https://www.gstatic.com/firebasejs/live/12.0/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/12.0/firebase.tgz"},"components":{"ai":"https://www.gstatic.com/firebasejs/12.0.0/firebase-ai.js","analytics":"https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/12.0.0/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js","auth/cordova":"https://www.gstatic.com/firebasejs/12.0.0/firebase-auth/cordova.js","auth/web-extension":"https://www.gstatic.com/firebasejs/12.0.0/firebase-auth/web-extension.js","functions":"https://www.gstatic.com/firebasejs/12.0.0/firebase-functions.js","firestore":"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js","firestore/lite":"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore/lite.js","installations":"https://www.gstatic.com/firebasejs/12.0.0/firebase-installations.js","storage":"https://www.gstatic.com/firebasejs/12.0.0/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/12.0.0/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/12.0.0/firebase-remote-config.js","messaging":"https://www.gstatic.com/firebasejs/12.0.0/firebase-messaging.js","messaging/sw":"https://www.gstatic.com/firebasejs/12.0.0/firebase-messaging/sw.js","database":"https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js","data-connect":"https://www.gstatic.com/firebasejs/12.0.0/firebase-data-connect.js","firestore.memory":"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.memory.js"}}
+[debug] [2025-08-07T05:25:05.960Z] Error: EACCES: permission denied, open '/index.html'
+    at Object.writeFileSync (node:fs:2410:20)
+    at Object.createFileSync (/usr/lib/node_modules/firebase-tools/node_modules/fs-extra/lib/ensure/file.js:63:6)
+    at Config.writeProjectFile (/usr/lib/node_modules/firebase-tools/lib/config.js:160:12)
+    at Config.askWriteProjectFile (/usr/lib/node_modules/firebase-tools/lib/config.js:208:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.doSetup (/usr/lib/node_modules/firebase-tools/lib/init/features/hosting/index.js:157:9)
+    at async init (/usr/lib/node_modules/firebase-tools/lib/init/index.js:65:13)
+    at async Command.initAction [as actionFn] (/usr/lib/node_modules/firebase-tools/lib/commands/init.js:209:5)
+[error] 
+[error] Error: An unexpected error has occurred.
