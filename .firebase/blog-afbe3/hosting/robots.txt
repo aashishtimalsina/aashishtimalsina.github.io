@@ -1,0 +1,6 @@
+# https://www.aashishtimalsina.com.np robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.aashishtimalsina.com.np/sitemap.xml
