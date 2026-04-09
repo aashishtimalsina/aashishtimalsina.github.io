@@ -124,21 +124,19 @@ export function GitHubCard({ className }: { className?: string }) {
         <div className="mt-5">
           {tab === "repos" ? (
             <div className="grid gap-3">
-              {(loading ? Array.from({ length: 3 }) : data?.repos ?? []).map((r, idx) => {
-                if (loading) {
-                  return (
-                    <div
-                      key={idx}
-                      className="relative overflow-hidden rounded-2xl border border-border bg-bg/20 p-4"
-                    >
-                      <div className="absolute inset-0 -translate-x-[20%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)] animate-shimmer" />
-                      <div className="h-4 w-44 rounded bg-white/5" />
-                      <div className="mt-3 h-3 w-72 rounded bg-white/5" />
-                    </div>
-                  );
-                }
-
-                return (
+              {loading ? (
+                Array.from({ length: 3 }).map((_, idx) => (
+                  <div
+                    key={idx}
+                    className="relative overflow-hidden rounded-2xl border border-border bg-bg/20 p-4"
+                  >
+                    <div className="absolute inset-0 -translate-x-[20%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)] animate-shimmer" />
+                    <div className="h-4 w-44 rounded bg-white/5" />
+                    <div className="mt-3 h-3 w-72 rounded bg-white/5" />
+                  </div>
+                ))
+              ) : (
+                (data?.repos ?? []).map((r) => (
                   <a
                     key={r.id}
                     href={r.html_url}
@@ -165,26 +163,24 @@ export function GitHubCard({ className }: { className?: string }) {
                       </span>
                     </div>
                   </a>
-                );
-              })}
+                ))
+              )}
             </div>
           ) : (
             <div className="grid gap-3">
-              {(loading ? Array.from({ length: 4 }) : data?.events ?? []).map((e, idx) => {
-                if (loading) {
-                  return (
-                    <div
-                      key={idx}
-                      className="relative overflow-hidden rounded-2xl border border-border bg-bg/20 p-4"
-                    >
-                      <div className="absolute inset-0 -translate-x-[20%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)] animate-shimmer" />
-                      <div className="h-3 w-64 rounded bg-white/5" />
-                      <div className="mt-3 h-3 w-80 rounded bg-white/5" />
-                    </div>
-                  );
-                }
-
-                return (
+              {loading ? (
+                Array.from({ length: 4 }).map((_, idx) => (
+                  <div
+                    key={idx}
+                    className="relative overflow-hidden rounded-2xl border border-border bg-bg/20 p-4"
+                  >
+                    <div className="absolute inset-0 -translate-x-[20%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)] animate-shimmer" />
+                    <div className="h-3 w-64 rounded bg-white/5" />
+                    <div className="mt-3 h-3 w-80 rounded bg-white/5" />
+                  </div>
+                ))
+              ) : (
+                (data?.events ?? []).map((e) => (
                   <div key={e.id} className="rounded-2xl border border-border bg-bg/20 p-4">
                     <div className="flex items-start justify-between gap-3">
                       <div className="text-sm text-fg">
@@ -200,8 +196,8 @@ export function GitHubCard({ className }: { className?: string }) {
                       </div>
                     </div>
                   </div>
-                );
-              })}
+                ))
+              )}
             </div>
           )}
         </div>
