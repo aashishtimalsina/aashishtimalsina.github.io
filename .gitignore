@@ -1,5 +1,8 @@
 node_modules
 dist
+.next
+out
+.turbo
 
 # Environment variables
 .env
@@ -19,5 +22,4 @@ yarn-error.log*
 
 # OS
 .DS_Store
-Thumbs.dbnode_modules
-dist
+Thumbs.db
