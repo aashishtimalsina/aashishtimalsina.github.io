@@ -48,6 +48,14 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg px-2 py-1 text-fg-muted transition hover:bg-white/5 hover:text-fg"
+            >
+              LinkedIn
+            </a>
           </nav>
         </div>
       </div>

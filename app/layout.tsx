@@ -32,17 +32,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: site.url,
-    title: seo.title,
-    description: seo.description,
+    title: "Aashish Timalsina | Full Stack Developer Portfolio",
+    description:
+      "Full Stack Developer specializing in Laravel APIs, Python backend, Flutter apps, React, DevOps, and scalable infrastructure.",
     siteName: site.name,
     locale: site.locale,
-    images: [{ url: absoluteUrl("/og"), width: 1200, height: 630, alt: site.name }],
+    images: [
+      {
+        url: absoluteUrl("/preview.png"),
+        width: 1200,
+        height: 630,
+        alt: seo.title,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: seo.title,
     description: seo.description,
-    images: [absoluteUrl("/og")],
+    images: [absoluteUrl("/preview.png")],
   },
   robots: {
     index: true,
@@ -64,7 +72,7 @@ function JsonLd() {
     name: site.name,
     jobTitle: "Full Stack Developer & API Engineer",
     url: site.url,
-    sameAs: [site.github],
+    sameAs: [site.github, site.linkedin],
     email: site.email,
     knowsAbout: [
       "Backend API Development",

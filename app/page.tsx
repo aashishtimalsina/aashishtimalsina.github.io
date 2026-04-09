@@ -132,6 +132,17 @@ export default function HomePage() {
                 {site.github}
               </a>
             </p>
+            <p className="mt-2 text-fg-muted">
+              LinkedIn:{" "}
+              <a
+                className="underline decoration-border hover:decoration-fg"
+                href={site.linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {site.linkedin}
+              </a>
+            </p>
           </div>
         </Container>
       </Section>
