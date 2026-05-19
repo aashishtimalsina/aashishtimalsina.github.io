@@ -18,6 +18,11 @@ function apiImagePatterns() {
       hostname: "www.aashishtimalsina.com.np",
       pathname: "/storage/**",
     },
+    {
+      protocol: "https",
+      hostname: "admin.aashishtimalsina.com.np",
+      pathname: "/storage/**",
+    },
   ];
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;

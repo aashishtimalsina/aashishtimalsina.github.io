@@ -1,6 +1,6 @@
 import type { SiteConfig } from "@/lib/site-defaults";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api/v1";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://admin.aashishtimalsina.com.np/api/v1";
 
 export async function fetchSiteSettings(): Promise<SiteConfig> {
   const res = await fetch(`${API_URL}/settings`, {

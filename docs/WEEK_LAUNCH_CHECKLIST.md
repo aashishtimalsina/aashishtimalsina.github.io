@@ -93,7 +93,7 @@ curl -s https://aashishtimalsina.com.np/sitemap.xml | head -40
 
 ```env
 # frontend/.env.local
-NEXT_PUBLIC_API_URL=https://api.yourdomain.com/api/v1
+NEXT_PUBLIC_API_URL=https://admin.aashishtimalsina.com.np/api/v1
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=xxxxxxxx
 

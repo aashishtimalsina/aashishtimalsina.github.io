@@ -20,7 +20,7 @@ This portfolio includes production-ready SEO. After deploying, complete these st
 Copy and fill in `frontend/.env.local`:
 
 ```env
-NEXT_PUBLIC_API_URL=https://your-api-domain.com/api/v1
+NEXT_PUBLIC_API_URL=https://admin.aashishtimalsina.com.np/api/v1
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=abc123...
 ```
