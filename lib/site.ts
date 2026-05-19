@@ -1,17 +1,12 @@
-export const site = {
-  name: "Aashish Timalsina",
-  role: "Full Stack Developer",
-  headline: "Full Stack Developer from Nepal",
-  summary: "5+ Years Experience Building Scalable Web Solutions",
-  email: "tm.aashish1@gmail.com",
-  phone: "9848077880",
-  github: "https://github.com/aashishtimalsina",
-  linkedin: "https://www.linkedin.com/in/aashishtimalsina/",
-  url: "https://aashishtimalsina.com.np",
-  locale: "en_NP",
-} as const;
+import { defaultSite, type SiteConfig } from "./site-defaults";
 
-export function absoluteUrl(path: string) {
-  return `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
+export type { SiteConfig };
+export { defaultSite };
+
+/** @deprecated Prefer getSite() on the server or useSite() in client components. */
+export const site = defaultSite;
+
+export function absoluteUrl(path: string, baseUrl: string = defaultSite.url) {
+  const base = baseUrl.replace(/\/$/, "");
+  return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
-

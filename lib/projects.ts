@@ -4,6 +4,7 @@ export type Project = {
   description: string;
   highlights: string[];
   stack: string[];
+  image?: string;
   githubUrl?: string;
   liveUrl?: string;
   featured?: boolean;

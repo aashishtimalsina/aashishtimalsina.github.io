@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./../styles/globals.css";
-import { site, absoluteUrl } from "@/lib/site";
+import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { SiteProvider } from "@/components/providers/SiteProvider";
+import { getSite } from "@/lib/get-site";
+import { absoluteUrl } from "@/lib/site";
 import { seo } from "@/lib/seo";
+import { buildMetadata, siteVerification } from "@/lib/seo/metadata";
+import { rootGraphSchema } from "@/lib/seo/schema";
 import { cn } from "@/utils/cn";
 
 const fontSans = Geist({
@@ -17,124 +23,66 @@ const fontMono = Geist_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  title: {
-    default: seo.title,
-    template: `%s — ${site.name}`,
-  },
-  description: seo.description,
-  keywords: [...seo.keywords],
-  authors: [{ name: site.name, url: site.url }],
-  creator: site.name,
-  category: "Technology",
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    url: site.url,
-    title: "Aashish Timalsina | Full Stack Developer Portfolio",
-    description:
-      "Full Stack Developer specializing in Laravel APIs, Python backend, Flutter apps, React, DevOps, and scalable infrastructure.",
-    siteName: site.name,
-    locale: site.locale,
-    images: [
-      {
-        url: absoluteUrl("/preview.png"),
-        width: 1200,
-        height: 630,
-        alt: seo.title,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: seo.title,
-    description: seo.description,
-    images: [absoluteUrl("/preview.png")],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
+export async function generateMetadata(): Promise<Metadata> {
+  const site = await getSite();
+  const title = site.seo?.title ?? seo.title;
+  const description = site.seo?.description ?? seo.description;
+  const keywords = site.seo?.keywords?.length ? site.seo.keywords : [...seo.keywords];
+  const ogImage = site.og_image ?? "/og";
+
+  const baseMeta = buildMetadata({
+    title,
+    description,
+    path: "/",
+    keywords,
+    ogImage,
+  });
+
+  return {
+    ...baseMeta,
+    title: {
+      default: title,
+      template: `%s — ${site.name}`,
     },
-  },
-};
-
-function JsonLd() {
-  const person = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: site.name,
-    jobTitle: "Full Stack Developer & API Engineer",
-    url: site.url,
-    sameAs: [site.github, site.linkedin],
-    email: site.email,
-    knowsAbout: [
-      "Backend API Development",
-      "Laravel",
-      "Python",
-      "Node.js",
-      "Microservices",
-      "Docker",
-      "Nginx",
-      "DigitalOcean",
-      "CI/CD",
-      "GitHub Actions",
-      "WebSockets",
-      "Flutter backend APIs",
-    ],
+    verification: siteVerification(site.analytics?.google_site_verification),
+    alternates: {
+      canonical: "/",
+      types: {
+        "application/rss+xml": absoluteUrl("/feed.xml", site.url),
+      },
+    },
   };
-
-  const website = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: seo.title,
-    url: site.url,
-    inLanguage: "en",
-    author: { "@type": "Person", name: site.name },
-  };
-
-  const webpage = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: seo.title,
-    url: site.url,
-    description: seo.description,
-    inLanguage: "en",
-    isPartOf: { "@type": "WebSite", url: site.url, name: seo.title },
-    about: { "@type": "Person", name: site.name },
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify([person, website, webpage]),
-      }}
-    />
-  );
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const site = await getSite();
+  const gaId =
+    site.analytics?.ga_measurement_id ?? process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? null;
+
   return (
     <html lang="en" className={cn("dark", fontSans.variable, fontMono.variable)}>
+      <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${site.name} Blog RSS`}
+          href="/feed.xml"
+        />
+      </head>
       <body
         className={cn(
           "min-h-dvh bg-bg font-sans text-fg",
-          "selection:bg-[rgba(99,102,241,0.25)] selection:text-fg"
+          "selection:bg-[rgba(99,102,241,0.25)] selection:text-fg",
         )}
       >
         <div className="pointer-events-none fixed inset-0 -z-10 bg-grid-fade" />
         <div className="pointer-events-none fixed inset-0 -z-10 opacity-35 noise" />
-        <JsonLd />
-        {children}
+        <SiteProvider site={site}>
+          <JsonLd data={rootGraphSchema(site)} />
+          <GoogleAnalytics measurementId={gaId} />
+          {children}
+        </SiteProvider>
       </body>
     </html>
   );
 }
-

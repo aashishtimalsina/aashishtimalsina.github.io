@@ -1,19 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { SiteLogo } from "@/components/brand/SiteLogo";
+import { mainNav } from "@/lib/navigation";
+import { useSite } from "@/components/providers/SiteProvider";
 import { cn } from "@/utils/cn";
-import { site } from "@/lib/site";
-
-const links = [
-  { href: "#github", label: "GitHub" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
-] as const;
 
 export function Navbar() {
+  const site = useSite();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const list = useMemo(() => links, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -30,32 +28,40 @@ export function Navbar() {
           scrolled && "border-border bg-bg/75 backdrop-blur",
         )}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <Link href="/" className="font-medium tracking-tight">
-            <span className="text-fg">{site.name}</span>
-            <span className="ml-2 hidden text-sm text-fg-muted sm:inline">
-              {site.role}
-            </span>
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3 sm:py-4">
+          <Link href="/" className="shrink-0 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent-2))]">
+            <SiteLogo />
           </Link>
 
-          <nav className="hidden items-center gap-4 text-sm md:flex">
-            {list.map((l) => (
+          <nav className="hidden items-center gap-1 text-sm md:flex" aria-label="Main">
+            {mainNav.map((link) => {
+              const active = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "rounded-lg px-2.5 py-1 transition",
+                    active
+                      ? "bg-white/10 text-fg"
+                      : "text-fg-muted hover:bg-white/5 hover:text-fg",
+                  )}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            {site.linkedin ? (
               <a
-                key={l.href}
-                href={l.href}
-                className="rounded-lg px-2 py-1 text-fg-muted transition hover:bg-white/5 hover:text-fg"
+                href={site.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="ml-1 rounded-lg px-2.5 py-1 text-fg-muted transition hover:bg-white/5 hover:text-fg"
               >
-                {l.label}
+                LinkedIn
               </a>
-            ))}
-            <a
-              href={site.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-lg px-2 py-1 text-fg-muted transition hover:bg-white/5 hover:text-fg"
-            >
-              LinkedIn
-            </a>
+            ) : null}
           </nav>
         </div>
       </div>

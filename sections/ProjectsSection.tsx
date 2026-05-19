@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ExternalLink, Github, Sparkles } from "lucide-react";
-import { projects } from "@/lib/projects";
+import { projects as defaultProjects, type Project } from "@/lib/projects";
+import { OptimizedImage } from "@/components/seo/OptimizedImage";
 import { Card, CardBody } from "@/components/ui/Card";
 import { TechBadge } from "@/components/ui/TechBadge";
 import { cn } from "@/utils/cn";
@@ -11,18 +11,25 @@ function ProjectCard({
   p,
   variant,
 }: {
-  p: (typeof projects)[number];
+  p: Project;
   variant: "featured" | "standard";
 }) {
   return (
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ type: "spring", stiffness: 260, damping: 20 }}
-      className="group h-full"
-    >
-      <Card className="h-full">
+    <div className="group h-full transition-transform duration-200 hover:-translate-y-1">
+      <Card className="h-full overflow-hidden">
+        {p.image ? (
+          <div className="relative aspect-[16/9] w-full border-b border-border bg-bg/30">
+            <OptimizedImage
+              src={p.image}
+              alt={p.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        ) : null}
         <CardBody className="flex h-full flex-col">
-          <div className="flex items-start justify-between gap-4">
+          <div>
             <div>
               <div className="flex items-center gap-2 text-sm text-fg-muted">
                 {variant === "featured" ? (
@@ -69,7 +76,12 @@ function ProjectCard({
             ))}
           </div>
 
-          <ul className={cn("mt-6 grid gap-2 text-sm text-fg-muted", variant === "featured" && "sm:grid-cols-2")}>
+          <ul
+            className={cn(
+              "mt-6 grid gap-2 text-sm text-fg-muted",
+              variant === "featured" && "sm:grid-cols-2",
+            )}
+          >
             {p.highlights.slice(0, variant === "featured" ? 4 : 3).map((h) => (
               <li key={h} className="flex items-start gap-2">
                 <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent-1))]" />
@@ -79,11 +91,21 @@ function ProjectCard({
           </ul>
         </CardBody>
       </Card>
-    </motion.div>
+    </div>
   );
 }
 
-export function ProjectsSection() {
+type Props = {
+  projects?: Project[];
+  heading?: string | null;
+  subheading?: string | null;
+};
+
+export function ProjectsSection({
+  projects = defaultProjects,
+  heading,
+  subheading,
+}: Props) {
   const featured = projects.filter((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
 
@@ -92,25 +114,31 @@ export function ProjectsSection() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <div className="text-sm text-fg-muted">Selected work</div>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight">Featured projects</h2>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight">
+            {heading ?? "Featured projects"}
+          </h2>
           <p className="mt-2 max-w-2xl text-fg-muted">
-            Real-world systems across APIs, deployments, and realtime services—built with a production mindset.
+            {subheading ??
+              "Real-world systems across APIs, deployments, and realtime services—built with a production mindset."}
           </p>
         </div>
       </div>
 
-      <div className="mt-8 grid gap-5 lg:grid-cols-2">
-        {featured.map((p) => (
-          <ProjectCard key={p.slug} p={p} variant="featured" />
-        ))}
-      </div>
+      {featured.length > 0 ? (
+        <div className="mt-8 grid gap-5 lg:grid-cols-2">
+          {featured.map((p) => (
+            <ProjectCard key={p.slug} p={p} variant="featured" />
+          ))}
+        </div>
+      ) : null}
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2">
-        {rest.map((p) => (
-          <ProjectCard key={p.slug} p={p} variant="standard" />
-        ))}
-      </div>
+      {rest.length > 0 ? (
+        <div className={cn("grid gap-5 md:grid-cols-2", featured.length > 0 && "mt-10")}>
+          {rest.map((p) => (
+            <ProjectCard key={p.slug} p={p} variant="standard" />
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }
-

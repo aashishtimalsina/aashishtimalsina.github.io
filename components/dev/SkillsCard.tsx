@@ -7,14 +7,24 @@ import { cn } from "@/utils/cn";
 
 const skills = [
   {
+    title: "Laravel + Next.js",
+    items: [
+      "Laravel API + Filament CMS",
+      "Next.js App Router (SSR/ISR)",
+      "Headless blog + server-side SEO",
+      "MDX content (static / hybrid)",
+      "Cloudflare CDN & edge caching",
+      "Next.js Image (AVIF/WebP)",
+    ],
+  },
+  {
     title: "Backend & APIs",
     items: [
-      "Laravel API Development",
-      "Python API Development",
-      "Node.js Backend Services",
-      "REST APIs",
-      "Authentication Systems",
-      "Microservices Architecture",
+      "Laravel SaaS & multi-tenant",
+      "Sanctum API authentication",
+      "REST APIs & OpenAPI",
+      "Payment gateways (eSewa, Khalti)",
+      "PostgreSQL / MySQL",
     ],
   },
   {
