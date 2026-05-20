@@ -4,12 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SiteLogo } from "@/components/brand/SiteLogo";
-import { mainNav } from "@/lib/navigation";
+import { mainNav, memberNav } from "@/lib/navigation";
+import { useAuth } from "@/components/providers/AuthProvider";
 import { useSite } from "@/components/providers/SiteProvider";
 import { cn } from "@/utils/cn";
 
 export function Navbar() {
   const site = useSite();
+  const { user } = useAuth();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
@@ -52,6 +54,20 @@ export function Navbar() {
                 </Link>
               );
             })}
+            {memberNav.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "rounded-lg px-2.5 py-1 transition",
+                  pathname.startsWith(link.href)
+                    ? "bg-white/10 text-fg"
+                    : "text-fg-muted hover:bg-white/5 hover:text-fg",
+                )}
+              >
+                {user ? link.label : "Sign in"}
+              </Link>
+            ))}
             {site.linkedin ? (
               <a
                 href={site.linkedin}

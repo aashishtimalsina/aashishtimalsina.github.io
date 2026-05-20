@@ -7,6 +7,7 @@ import { Section } from "@/components/layout/Section";
 import { OptimizedImage } from "@/components/seo/OptimizedImage";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getPost } from "@/lib/api/blog";
+import { CommentsSection } from "@/components/blog/CommentsSection";
 import { postBreadcrumbJsonLd, postJsonLd, postMetadata } from "@/lib/blog-seo";
 
 export const revalidate = 120;
@@ -108,6 +109,8 @@ export default async function BlogPostPage({ params }: Props) {
                   itemProp="articleBody"
                 />
               ) : null}
+
+              <CommentsSection slug={slug} />
             </article>
           </Container>
         </Section>
