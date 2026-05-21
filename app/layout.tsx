@@ -69,6 +69,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           title={`${site.name} Blog RSS`}
           href="/feed.xml"
         />
+        <GoogleAnalytics measurementId={gaId} />
       </head>
       <body
         className={cn(
@@ -81,7 +82,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <SiteProvider site={site}>
           <AuthProvider>
             <JsonLd data={rootGraphSchema(site)} />
-            <GoogleAnalytics measurementId={gaId} />
             {children}
           </AuthProvider>
         </SiteProvider>
