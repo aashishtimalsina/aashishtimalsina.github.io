@@ -15,6 +15,12 @@ export default function AuthCallbackPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const oauthError = params.get("error");
+    if (oauthError) {
+      setError(oauthError);
+      return;
+    }
+
     const token = params.get("token");
     const redirect = params.get("redirect") || "/account";
 
