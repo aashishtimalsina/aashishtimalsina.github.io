@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./../styles/globals.css";
 import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { AuthProvider } from "@/components/providers/AuthProvider";
 import { SiteProvider } from "@/components/providers/SiteProvider";
 import { getSite } from "@/lib/get-site";
 import { absoluteUrl } from "@/lib/site";
@@ -78,9 +79,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <div className="pointer-events-none fixed inset-0 -z-10 bg-grid-fade" />
         <div className="pointer-events-none fixed inset-0 -z-10 opacity-35 noise" />
         <SiteProvider site={site}>
-          <JsonLd data={rootGraphSchema(site)} />
-          <GoogleAnalytics measurementId={gaId} />
-          {children}
+          <AuthProvider>
+            <JsonLd data={rootGraphSchema(site)} />
+            <GoogleAnalytics measurementId={gaId} />
+            {children}
+          </AuthProvider>
         </SiteProvider>
       </body>
     </html>

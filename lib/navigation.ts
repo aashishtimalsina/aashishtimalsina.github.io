@@ -3,8 +3,12 @@ export const mainNav = [
   { href: "/about", label: "About Me" },
   { href: "/services", label: "Services" },
   { href: "/blog", label: "Blog" },
+  { href: "/tools", label: "AI Tools" },
+  { href: "/chat", label: "Chat" },
   { href: "/contact", label: "Contact" },
 ] as const;
+
+export const memberNav = [{ href: "/account", label: "Account" }] as const;
 
 export const footerNav = {
   site: [
@@ -28,6 +32,9 @@ export const staticRoutes = [
   "/services",
   "/blog",
   "/contact",
+  "/tools",
+  "/chat",
+  "/account",
   "/privacy-policy",
   "/terms",
   "/disclaimer",
