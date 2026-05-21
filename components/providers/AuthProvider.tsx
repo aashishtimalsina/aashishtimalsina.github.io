@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { fetchMe, getGoogleAuthUrl, logout as apiLogout, type AuthUser } from "@/lib/api/auth";
-import { getAuthToken, setAuthToken } from "@/lib/api/client";
+import { getAuthToken, setAuthToken } from "@/lib/api/http";
 
 type AuthContextValue = {
   user: AuthUser | null;

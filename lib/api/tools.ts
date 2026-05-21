@@ -1,4 +1,4 @@
-import { apiFetch } from "./client";
+import { apiFetch } from "@/lib/api/http";
 
 export async function summarizeText(text: string) {
   const json = await apiFetch<{

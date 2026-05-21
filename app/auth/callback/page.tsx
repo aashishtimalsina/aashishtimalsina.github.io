@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { setAuthToken } from "@/lib/api/client";
+import { setAuthToken } from "@/lib/api/http";
 import { useAuth } from "@/components/providers/AuthProvider";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { Container } from "@/components/layout/Container";

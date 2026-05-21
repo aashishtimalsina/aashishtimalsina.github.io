@@ -1,4 +1,4 @@
-import { apiFetch } from "./client";
+import { apiFetch } from "@/lib/api/http";
 
 export type ChatMessage = {
   id: number;

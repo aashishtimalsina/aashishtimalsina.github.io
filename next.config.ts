@@ -1,40 +1,34 @@
 import type { NextConfig } from "next";
 
-function apiImagePatterns() {
-  const patterns: NonNullable<NextConfig["images"]>["remotePatterns"] = [
-    {
-      protocol: "http",
-      hostname: "localhost",
-      port: "8000",
-      pathname: "/storage/**",
-    },
-    {
-      protocol: "https",
-      hostname: "aashishtimalsina.com.np",
-      pathname: "/storage/**",
-    },
-    {
-      protocol: "https",
-      hostname: "www.aashishtimalsina.com.np",
-      pathname: "/storage/**",
-    },
-    {
-      protocol: "https",
-      hostname: "admin.aashishtimalsina.com.np",
-      pathname: "/storage/**",
-    },
-  ];
+/** Hostnames that serve Laravel public/storage assets (blog images, portfolio uploads). */
+const STORAGE_IMAGE_HOSTS = [
+  { protocol: "http" as const, hostname: "localhost", port: "8000" },
+  { protocol: "http" as const, hostname: "127.0.0.1", port: "8000" },
+  { protocol: "https" as const, hostname: "admin.aashishtimalsina.com.np" },
+  { protocol: "https" as const, hostname: "aashishtimalsina.com.np" },
+  { protocol: "https" as const, hostname: "www.aashishtimalsina.com.np" },
+];
+
+function storageRemotePatterns(): NonNullable<NextConfig["images"]>["remotePatterns"] {
+  const patterns: NonNullable<NextConfig["images"]>["remotePatterns"] = STORAGE_IMAGE_HOSTS.map(
+    ({ protocol, hostname, port }) => ({
+      protocol,
+      hostname,
+      ...(port ? { port } : {}),
+      pathname: "/**",
+    }),
+  );
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   if (apiUrl) {
     try {
       const { hostname, port, protocol } = new URL(apiUrl);
-      if (hostname && hostname !== "localhost" && !patterns.some((p) => p?.hostname === hostname)) {
+      if (hostname && !patterns.some((p) => p?.hostname === hostname)) {
         patterns.push({
           protocol: (protocol.replace(":", "") || "https") as "http" | "https",
           hostname,
           ...(port ? { port } : {}),
-          pathname: "/storage/**",
+          pathname: "/**",
         });
       }
     } catch {
@@ -78,7 +72,9 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30,
-    remotePatterns: apiImagePatterns(),
+    // Used when next/image loads remote URLs (e.g. production). Blog cards use <img> for API URLs.
+    remotePatterns: storageRemotePatterns(),
+    domains: STORAGE_IMAGE_HOSTS.map((h) => h.hostname),
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],

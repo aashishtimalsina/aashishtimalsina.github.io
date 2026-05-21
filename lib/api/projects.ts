@@ -1,6 +1,5 @@
 import type { Project } from "@/lib/projects";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://admin.aashishtimalsina.com.np/api/v1";
+import { API_URL } from "@/lib/api/http";
 
 type ApiProject = {
   slug: string;

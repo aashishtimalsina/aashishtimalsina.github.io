@@ -1,6 +1,5 @@
 import type { Category, Paginated, Post, SitemapData } from "./types";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://admin.aashishtimalsina.com.np/api/v1";
+import { API_URL } from "@/lib/api/http";
 
 async function fetchApi<T>(path: string, revalidate = 60): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {
