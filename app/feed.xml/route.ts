@@ -45,7 +45,7 @@ export async function GET() {
   <channel>
     <title>${escapeXml(`${site.name} Blog`)}</title>
     <link>${absoluteUrl("/blog")}</link>
-    <description>${escapeXml("Articles on Laravel, DevOps, AI, and full-stack development.")}</description>
+    <description>${escapeXml("Articles on building and deploying production software.")}</description>
     <language>en</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${absoluteUrl("/feed.xml")}" rel="self" type="application/rss+xml"/>

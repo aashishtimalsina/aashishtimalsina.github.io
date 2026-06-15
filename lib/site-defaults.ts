@@ -30,10 +30,11 @@ export type SiteConfig = {
 
 export const defaultSite: SiteConfig = {
   name: "Aashish Timalsina",
-  role: "Laravel & SaaS Engineer",
-  headline: "I build production Laravel systems — APIs, multi-tenant SaaS, and real deployments",
-  summary: "5+ years shipping Laravel APIs, SaaS products, and DevOps pipelines from Nepal",
-  niche: "Laravel + SaaS production systems",
+  role: "Software Engineer",
+  headline: "I build and deploy production systems — from idea to launch",
+  summary:
+    "5+ years building and deploying real software: business systems, APIs, dashboards, and reliable infrastructure",
+  niche: "Production software delivery",
   email: "tm.aashish1@gmail.com",
   phone: "9848077880",
   github: "https://github.com/aashishtimalsina",

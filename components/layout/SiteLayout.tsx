@@ -7,10 +7,10 @@ type Props = {
 
 export function SiteLayout({ children }: Props) {
   return (
-  <>
-    <Navbar />
-    {children}
-    <Footer />
-  </>
+    <div className="flex min-h-dvh flex-col">
+      <Navbar />
+      <div className="flex-1">{children}</div>
+      <Footer />
+    </div>
   );
 }

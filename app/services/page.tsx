@@ -13,40 +13,40 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Services & Projects",
-  description: `${site.name} builds Laravel backends, Next.js frontends, SEO blogs, and Cloudflare-backed deployments — production systems, not demos.`,
+  description: `${site.name} builds and deploys production software — business systems, APIs, dashboards, and reliable infrastructure.`,
   path: "/services",
 });
 
 const services = [
   {
-    title: "Laravel + Next.js Products",
+    title: "End-to-end product delivery",
     description:
-      "Full-stack SaaS and marketing sites: Laravel API, Filament admin, Next.js App Router, headless or MDX blog, server-side SEO, and image optimization.",
-    tags: ["Laravel", "Next.js", "Filament", "SSR SEO"],
+      "I take a project from requirements → build → deployment. Clean UX, backend logic, admin workflows, and production setup included.",
+    tags: ["Plan", "Build", "Ship", "Iterate"],
   },
   {
-    title: "Backend API Development",
+    title: "Backend systems & APIs",
     description:
-      "RESTful APIs with Laravel — Sanctum auth, multi-tenant SaaS, payments (eSewa, Khalti, Stripe), and OpenAPI documentation.",
-    tags: ["Laravel", "Sanctum", "SaaS", "PostgreSQL"],
+      "Secure APIs, integrations, payments, and data modeling. Built for real users, real traffic, and long-term maintainability.",
+    tags: ["Auth", "Payments", "Integrations", "Data"],
   },
   {
-    title: "DevOps & Deployment",
+    title: "Deployment & operations",
     description:
-      "Docker, Nginx, CI/CD pipelines, GitHub Actions, and server setup on DigitalOcean or Ubuntu VPS.",
-    tags: ["Docker", "CI/CD", "Nginx", "DigitalOcean"],
+      "Deployments, environments, CI/CD, monitoring basics, and performance hardening so your system stays reliable after launch.",
+    tags: ["Deploy", "CI/CD", "Reliability", "Performance"],
   },
   {
-    title: "Mobile App Backends",
+    title: "Mobile-ready backends",
     description:
-      "APIs for Flutter apps: auth, uploads, push notifications, payments, and third-party integrations.",
-    tags: ["Flutter API", "File uploads", "Webhooks"],
+      "APIs designed for mobile apps: auth, uploads, notifications, and third-party integrations with stable versioning.",
+    tags: ["Uploads", "Webhooks", "Versioning", "Notifications"],
   },
   {
-    title: "Real-time Applications",
+    title: "Realtime & dashboards",
     description:
-      "WebSocket services, live dashboards, and event streaming for low-latency user experiences.",
-    tags: ["WebSockets", "Node.js", "Redis"],
+      "Live dashboards and realtime features when you need them — without sacrificing reliability and observability.",
+    tags: ["Realtime", "Dashboards", "Events", "Observability"],
   },
 ] as const;
 
@@ -65,7 +65,7 @@ export default async function ServicesPage() {
         <Section className="pt-10">
           <PageHero
             title="Services & Projects"
-            description="Laravel backend, Next.js frontend, SEO blogs, Cloudflare CDN — shipped as one production system."
+            description="I build and deploy software that runs in production — clear scope, clean delivery, and reliable operations."
           />
         </Section>
 
@@ -75,7 +75,7 @@ export default async function ServicesPage() {
               {services.map((s) => (
                 <article
                   key={s.title}
-                  className="rounded-2xl border border-border bg-card/40 p-6 shadow-glow"
+                  className="rounded-xl border border-border p-5 sm:p-6"
                 >
                   <h2 className="text-xl font-semibold tracking-tight">{s.title}</h2>
                   <p className="mt-3 text-sm text-fg-muted">{s.description}</p>

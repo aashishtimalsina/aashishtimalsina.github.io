@@ -32,7 +32,7 @@ export async function GET() {
             {site.name}
           </div>
           <div style={{ fontSize: 30, color: "rgba(255,255,255,0.85)" }}>
-            Full Stack Developer • Laravel • Flutter • DevOps
+            Software Engineer • Systems • Deployment
           </div>
           <div style={{ fontSize: 24, color: "rgba(255,255,255,0.70)", maxWidth: 980 }}>
             {seo.description}

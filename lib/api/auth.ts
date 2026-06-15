@@ -18,10 +18,24 @@ export type AuthUser = {
 };
 
 export async function getGoogleAuthUrl(redirect = "/account"): Promise<string> {
-  const json = await apiFetch<{ url: string }>(
-    `/auth/google/url?redirect=${encodeURIComponent(redirect)}`,
-    { auth: false },
-  );
+  const q = `redirect=${encodeURIComponent(redirect)}`;
+
+  // Browser: same-origin Next route avoids admin→portfolio CORS (and surfaces real API errors).
+  if (typeof window !== "undefined") {
+    const res = await fetch(`/api/auth/google-url?${q}`, {
+      headers: { Accept: "application/json" },
+    });
+    const json = (await res.json().catch(() => ({}))) as { url?: string; message?: string };
+    if (!res.ok) {
+      throw new Error(json.message ?? `Sign-in failed (${res.status})`);
+    }
+    if (!json.url) {
+      throw new Error("Google sign-in URL missing from API response.");
+    }
+    return json.url;
+  }
+
+  const json = await apiFetch<{ url: string }>(`/auth/google/url?${q}`, { auth: false });
   return json.url;
 }
 

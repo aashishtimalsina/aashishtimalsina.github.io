@@ -10,54 +10,84 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-bg/50">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <SiteLogo className="mb-4" showRole />
-            <p className="mt-2 text-sm text-fg-muted">{site.summary}</p>
+    <footer className="mt-auto border-t border-border">
+      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-12">
+        <div className="flex flex-col gap-8 sm:flex-row sm:justify-between">
+          <div className="max-w-xs">
+            <SiteLogo showRole />
+            <p className="mt-3 text-sm leading-relaxed text-fg-muted">{site.summary}</p>
           </div>
 
-          <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-fg-muted">Site</p>
-            <ul className="mt-4 space-y-2 text-sm">
-              {footerNav.site.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-fg-muted transition hover:text-fg hover:underline"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3 sm:gap-12">
+            <div>
+              <p className="font-medium text-fg">Site</p>
+              <ul className="mt-3 space-y-2">
+                {footerNav.site.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-fg-muted transition hover:text-fg"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-fg-muted">Legal</p>
-            <ul className="mt-4 space-y-2 text-sm">
-              {footerNav.legal.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-fg-muted transition hover:text-fg hover:underline"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <p className="font-medium text-fg">Legal</p>
+              <ul className="mt-3 space-y-2">
+                {footerNav.legal.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-fg-muted transition hover:text-fg"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="font-medium text-fg">Social</p>
+              <ul className="mt-3 space-y-2">
+                {site.github ? (
+                  <li>
+                    <a
+                      href={site.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-fg-muted transition hover:text-fg"
+                    >
+                      GitHub
+                    </a>
+                  </li>
+                ) : null}
+                {site.linkedin ? (
+                  <li>
+                    <a
+                      href={site.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-fg-muted transition hover:text-fg"
+                    >
+                      LinkedIn
+                    </a>
+                  </li>
+                ) : null}
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-border pt-8 text-sm text-fg-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} {site.name}. All rights reserved.</p>
-          <p>
-            <a href={`mailto:${site.email}`} className="hover:text-fg hover:underline">
-              {site.email}
-            </a>
-          </p>
+        <div className="mt-8 flex flex-col gap-2 border-t border-border pt-6 text-sm text-fg-muted sm:flex-row sm:items-center sm:justify-between">
+          <p>© {year} {site.name}</p>
+          <a href={`mailto:${site.email}`} className="transition hover:text-fg">
+            {site.email}
+          </a>
         </div>
       </div>
     </footer>

@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: site.name,
     short_name: "Aashish T.",
     description:
-      "Full Stack Developer portfolio — Laravel, APIs, DevOps, and scalable web applications.",
+      "Software engineer portfolio — production systems, deployments, and scalable applications.",
     start_url: "/",
     display: "standalone",
     background_color: "#0a1628",

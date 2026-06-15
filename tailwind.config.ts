@@ -33,13 +33,6 @@ export default {
         warn: "hsl(var(--warn))",
         bad: "hsl(var(--bad))",
       },
-      boxShadow: {
-        glow: "0 0 0 1px hsl(var(--border)), 0 0 26px rgba(99, 102, 241, 0.16)",
-      },
-      backgroundImage: {
-        "grid-fade":
-          "radial-gradient(ellipse at top, rgba(99, 102, 241, 0.16), transparent 62%), radial-gradient(ellipse at bottom, rgba(6, 182, 212, 0.12), transparent 58%)",
-      },
       keyframes: {
         shimmer: {
           "0%": { transform: "translateX(-20%)" },

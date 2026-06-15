@@ -69,19 +69,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           title={`${site.name} Blog RSS`}
           href="/feed.xml"
         />
+        <GoogleAnalytics measurementId={gaId} />
       </head>
-      <body
-        className={cn(
-          "min-h-dvh bg-bg font-sans text-fg",
-          "selection:bg-[rgba(99,102,241,0.25)] selection:text-fg",
-        )}
-      >
-        <div className="pointer-events-none fixed inset-0 -z-10 bg-grid-fade" />
-        <div className="pointer-events-none fixed inset-0 -z-10 opacity-35 noise" />
+      <body className="min-h-dvh bg-bg font-sans text-fg">
         <SiteProvider site={site}>
           <AuthProvider>
             <JsonLd data={rootGraphSchema(site)} />
-            <GoogleAnalytics measurementId={gaId} />
             {children}
           </AuthProvider>
         </SiteProvider>
