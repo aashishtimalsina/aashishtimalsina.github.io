@@ -3,17 +3,45 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import { SiteLogo } from "@/components/brand/SiteLogo";
 import { mainNav, memberNav } from "@/lib/navigation";
 import { useAuth } from "@/components/providers/AuthProvider";
-import { useSite } from "@/components/providers/SiteProvider";
 import { cn } from "@/utils/cn";
 
+function NavLink({
+  href,
+  label,
+  active,
+  onClick,
+}: {
+  href: string;
+  label: string;
+  active: boolean;
+  onClick?: () => void;
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={cn(
+        "block rounded-lg px-3 py-2 text-sm transition md:inline-block md:px-2.5 md:py-1",
+        active
+          ? "text-fg md:bg-white/8"
+          : "text-fg-muted hover:text-fg md:hover:bg-white/5",
+      )}
+      aria-current={active ? "page" : undefined}
+    >
+      {label}
+    </Link>
+  );
+}
+
 export function Navbar() {
-  const site = useSite();
   const { user } = useAuth();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -22,65 +50,98 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  const close = () => setOpen(false);
+
   return (
-    <div className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50">
       <div
         className={cn(
           "border-b border-transparent transition",
-          scrolled && "border-border bg-bg/75 backdrop-blur",
+          (scrolled || open) && "border-border bg-bg/90 backdrop-blur-sm",
         )}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3 sm:py-4">
-          <Link href="/" className="shrink-0 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent-2))]">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+          <Link
+            href="/"
+            className="shrink-0 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-border"
+          >
             <SiteLogo />
           </Link>
 
-          <nav className="hidden items-center gap-1 text-sm md:flex" aria-label="Main">
+          <nav className="hidden items-center gap-0.5 md:flex" aria-label="Main">
             {mainNav.map((link) => {
-              const active = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+              const active =
+                link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "rounded-lg px-2.5 py-1 transition",
-                    active
-                      ? "bg-white/10 text-fg"
-                      : "text-fg-muted hover:bg-white/5 hover:text-fg",
-                  )}
-                  aria-current={active ? "page" : undefined}
-                >
-                  {link.label}
-                </Link>
+                <NavLink key={link.href} href={link.href} label={link.label} active={active} />
               );
             })}
             {memberNav.map((link) => (
-              <Link
+              <NavLink
                 key={link.href}
                 href={link.href}
-                className={cn(
-                  "rounded-lg px-2.5 py-1 transition",
-                  pathname.startsWith(link.href)
-                    ? "bg-white/10 text-fg"
-                    : "text-fg-muted hover:bg-white/5 hover:text-fg",
-                )}
-              >
-                {user ? link.label : "Sign in"}
-              </Link>
+                label={user ? link.label : "Sign in"}
+                active={pathname.startsWith(link.href)}
+              />
             ))}
-            {site.linkedin ? (
-              <a
-                href={site.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="ml-1 rounded-lg px-2.5 py-1 text-fg-muted transition hover:bg-white/5 hover:text-fg"
-              >
-                LinkedIn
-              </a>
-            ) : null}
           </nav>
+
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-lg p-2 text-fg-muted transition hover:text-fg md:hidden"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </div>
-    </div>
+
+      {open ? (
+        <nav
+          id="mobile-nav"
+          className="border-b border-border bg-bg md:hidden"
+          aria-label="Mobile"
+        >
+          <div className="mx-auto max-w-5xl space-y-0.5 px-4 py-3 sm:px-6">
+            {mainNav.map((link) => {
+              const active =
+                link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+              return (
+                <NavLink
+                  key={link.href}
+                  href={link.href}
+                  label={link.label}
+                  active={active}
+                  onClick={close}
+                />
+              );
+            })}
+            {memberNav.map((link) => (
+              <NavLink
+                key={link.href}
+                href={link.href}
+                label={user ? link.label : "Sign in"}
+                active={pathname.startsWith(link.href)}
+                onClick={close}
+              />
+            ))}
+          </div>
+        </nav>
+      ) : null}
+    </header>
   );
 }

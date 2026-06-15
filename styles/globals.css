@@ -3,22 +3,20 @@
 @tailwind utilities;
 
 :root {
-  /* Midnight forest background (subtle green tint) */
-  --bg: 164 26% 4%;
-  --bg-2: 164 22% 6%;
-  --fg: 210 40% 98%;
-  --fg-muted: 215 18% 75%;
-  --card: 164 18% 9%;
-  --border: 164 12% 18%;
+  --bg: 220 14% 6%;
+  --bg-2: 220 12% 9%;
+  --fg: 210 20% 96%;
+  --fg-muted: 215 12% 62%;
+  --card: 220 12% 10%;
+  --border: 220 10% 18%;
 
-  /* Softer, less eye-fatiguing accents */
-  --accent-1: 248 80% 62%; /* indigo */
-  --accent-2: 198 85% 52%; /* cyan */
-  --accent-3: 155 55% 46%; /* green */
+  --accent-1: 220 70% 60%;
+  --accent-2: 200 70% 55%;
+  --accent-3: 155 45% 45%;
 
-  --ok: 155 55% 46%;
-  --warn: 38 85% 52%;
-  --bad: 0 72% 58%;
+  --ok: 155 45% 45%;
+  --warn: 38 80% 50%;
+  --bad: 0 65% 55%;
 }
 
 html {
@@ -31,26 +29,5 @@ body {
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.25);
+  background: rgba(255, 255, 255, 0.12);
 }
-
-.text-gradient {
-  background: linear-gradient(90deg, hsl(var(--accent-1)), hsl(var(--accent-2)));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.hairline {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.10),
-    transparent
-  );
-}
-
-.noise {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E");
-}
-

@@ -41,7 +41,7 @@ export default async function BlogPage({ searchParams }: Props) {
     name: `${site.name} Blog`,
     url: absoluteUrl("/blog"),
     description:
-      "Production Laravel and SaaS tutorials from real shipped systems — multi-tenancy, APIs, payments, and DevOps.",
+      "Production software notes from real shipped systems — APIs, payments, operations, and scaling lessons.",
     author: { "@type": "Person", name: site.name, url: site.url },
     blogPost: postsRes.data.slice(0, 10).map((post) => ({
       "@type": "BlogPosting",
@@ -66,12 +66,12 @@ export default async function BlogPage({ searchParams }: Props) {
         <Section className="pt-10">
           <Container>
             <div className="max-w-3xl">
-              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-                Laravel & SaaS Tutorials
+              <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                Production software notes
               </h1>
-              <p className="mt-4 text-lg text-fg-muted">
-                Production guides from real systems — multi-tenant apps, APIs, payments, and DevOps.
-                SEO tutorials that compound, plus practical developer content from Nepal.
+              <p className="mt-3 text-base leading-relaxed text-fg-muted sm:mt-4 sm:text-lg">
+                Notes from building and deploying real systems — APIs, payments, operations, and the
+                mistakes you only find in production.
               </p>
             </div>
 

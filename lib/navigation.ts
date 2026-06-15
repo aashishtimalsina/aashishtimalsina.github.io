@@ -1,7 +1,6 @@
 export const mainNav = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Me" },
-  { href: "/services", label: "Services" },
+  { href: "/services", label: "Work" },
   { href: "/blog", label: "Blog" },
   { href: "/tools", label: "AI Tools" },
   { href: "/chat", label: "Chat" },
@@ -13,9 +12,10 @@ export const memberNav = [{ href: "/account", label: "Account" }] as const;
 export const footerNav = {
   site: [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About Me" },
-    { href: "/services", label: "Services & Projects" },
+    { href: "/services", label: "Work" },
     { href: "/blog", label: "Blog" },
+    { href: "/tools", label: "AI Tools" },
+    { href: "/chat", label: "Chat" },
     { href: "/contact", label: "Contact" },
   ],
   legal: [
@@ -28,7 +28,6 @@ export const footerNav = {
 /** Static routes for sitemap.xml */
 export const staticRoutes = [
   "/",
-  "/about",
   "/services",
   "/blog",
   "/contact",

@@ -11,7 +11,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Me",
-  description: `${site.name} builds production Laravel & SaaS systems in Nepal — multi-tenant apps, APIs, payments, and DevOps. Real tutorials from real shipped projects.`,
+  description: `${site.name} builds and deploys production software in Nepal — business systems, APIs, and reliable operations. Real lessons from shipped work.`,
   path: "/about",
 });
 
@@ -22,7 +22,7 @@ export default function AboutPage() {
         <Section className="pt-10">
           <PageHero
             title="About Me"
-            description={`I'm ${site.name} — I write about what I ship: Laravel SaaS, multi-tenant systems, and production infrastructure.`}
+            description={`I'm ${site.name} — I build and deploy production systems, and I write about what I learn while shipping.`}
           />
         </Section>
 
@@ -32,22 +32,17 @@ export default function AboutPage() {
               <div className="space-y-6 text-fg-muted">
                 <p className="text-lg text-fg">{site.summary}</p>
                 <p>
-                  My niche is <strong className="text-fg">Laravel + SaaS</strong>. I have built
-                  multi-tenant HRM systems, subscription apps with Stripe and local payment gateways,
-                  and APIs that Flutter and Next.js frontends depend on every day.
+                  I focus on outcomes: systems that are stable, maintainable, and easy for teams to
+                  operate. I have built HRM and business tools, subscription workflows, payments,
+                  and APIs that apps depend on every day.
                 </p>
                 <p>
-                  That is my advantage: these tutorials come from production code, not copied
-                  documentation. When I write about tenancy, Sanctum auth, or Filament admin panels,
-                  it is because I solved those problems for paying clients and my own products.
+                  My advantage is simple: I ship. I design, build, deploy, and support systems in
+                  production, so the lessons here come from real constraints—not theory.
                 </p>
                 <p>
-                  The stack I ship and teach: <strong className="text-fg">Laravel backend</strong>,{" "}
-                  <strong className="text-fg">Next.js frontend</strong>, headless or{" "}
-                  <strong className="text-fg">MDX blog</strong>,{" "}
-                  <strong className="text-fg">Cloudflare CDN</strong>, Next.js image optimization,
-                  and <strong className="text-fg">server-side SEO</strong>. This portfolio runs that
-                  stack in production.
+                  What you get when you work with me: clear communication, practical architecture,
+                  secure auth, clean data models, and deployments that don’t break.
                 </p>
                 <p>
                   Real growth comes from SEO traffic compounding, consistent publishing, and going

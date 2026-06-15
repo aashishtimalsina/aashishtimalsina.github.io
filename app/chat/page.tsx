@@ -62,7 +62,7 @@ export default function ChatPage() {
                   <div className="flex-1 space-y-3 overflow-y-auto">
                     {messages.length === 0 ? (
                       <p className="text-sm text-fg-muted">
-                        Try: &quot;What stack do you use?&quot; or &quot;How can I hire you for a Laravel API?&quot;
+                        Try: &quot;What kind of systems do you build?&quot; or &quot;Can you deploy and maintain this after launch?&quot;
                       </p>
                     ) : (
                       messages.map((m) => (

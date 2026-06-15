@@ -8,6 +8,7 @@ import { OptimizedImage } from "@/components/seo/OptimizedImage";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getPost } from "@/lib/api/blog";
 import { CommentsSection } from "@/components/blog/CommentsSection";
+import { SuggestedPosts } from "@/components/blog/SuggestedPosts";
 import { postBreadcrumbJsonLd, postJsonLd, postMetadata } from "@/lib/blog-seo";
 
 export const revalidate = 120;
@@ -59,11 +60,17 @@ export default async function BlogPostPage({ params }: Props) {
                 </Link>
 
                 <h1
-                  className="mt-6 text-balance text-4xl font-semibold tracking-tight sm:text-5xl"
+                  className="mt-5 text-balance text-2xl font-semibold tracking-tight sm:mt-6 sm:text-3xl lg:text-4xl"
                   itemProp="headline"
                 >
                   {post.title}
                 </h1>
+
+                {post.excerpt ? (
+                  <p className="mt-4 text-base leading-relaxed text-fg-muted sm:mt-5 sm:text-lg">
+                    {post.excerpt}
+                  </p>
+                ) : null}
 
                 <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-fg-muted">
                   {post.category ? (
@@ -91,7 +98,7 @@ export default async function BlogPostPage({ params }: Props) {
               </header>
 
               {post.featured_image ? (
-                <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl border border-border">
+                <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-xl border border-border sm:mt-8">
                   <OptimizedImage
                     src={post.featured_image}
                     alt={post.title}
@@ -104,13 +111,18 @@ export default async function BlogPostPage({ params }: Props) {
 
               {post.content ? (
                 <div
-                  className="prose prose-invert prose-lg mt-10 max-w-none rounded-2xl border border-border bg-card/30 p-6 sm:p-8 prose-headings:tracking-tight prose-headings:text-fg prose-p:text-fg-muted prose-a:text-accent-1 prose-strong:text-fg prose-code:rounded prose-code:bg-bg/50 prose-code:px-1 prose-code:py-0.5 prose-code:text-fg prose-pre:border prose-pre:border-border prose-pre:bg-bg/40"
+                  className="prose prose-invert mt-8 max-w-none sm:mt-10 prose-headings:tracking-tight prose-headings:text-fg prose-p:text-fg-muted prose-a:text-accent-1 prose-strong:text-fg prose-code:rounded prose-code:bg-bg prose-code:px-1 prose-code:py-0.5 prose-code:text-fg prose-pre:border prose-pre:border-border prose-pre:bg-bg"
                   dangerouslySetInnerHTML={{ __html: post.content }}
                   itemProp="articleBody"
                 />
               ) : null}
 
               <CommentsSection slug={slug} />
+
+              <SuggestedPosts
+                currentSlug={post.slug}
+                categorySlug={post.category?.slug}
+              />
             </article>
           </Container>
         </Section>

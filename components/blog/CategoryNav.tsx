@@ -16,10 +16,10 @@ export function CategoryNav({ categories, activeSlug }: Props) {
       <Link
         href="/blog"
         className={cn(
-          "shrink-0 rounded-full border px-4 py-1.5 text-sm transition",
+          "shrink-0 rounded-lg border px-3 py-1.5 text-sm transition",
           !activeSlug
-            ? "border-accent-1/50 bg-accent-1/10 text-fg"
-            : "border-border text-fg-muted hover:border-white/20 hover:text-fg",
+            ? "border-fg-muted text-fg"
+            : "border-border text-fg-muted hover:text-fg",
         )}
       >
         All
@@ -29,10 +29,10 @@ export function CategoryNav({ categories, activeSlug }: Props) {
           key={cat.id}
           href={`/blog/category/${cat.slug}`}
           className={cn(
-            "shrink-0 rounded-full border px-4 py-1.5 text-sm transition",
+            "shrink-0 rounded-lg border px-3 py-1.5 text-sm transition",
             activeSlug === cat.slug
-              ? "border-accent-1/50 bg-accent-1/10 text-fg"
-              : "border-border text-fg-muted hover:border-white/20 hover:text-fg",
+              ? "border-fg-muted text-fg"
+              : "border-border text-fg-muted hover:text-fg",
           )}
         >
           {cat.name}

@@ -10,7 +10,7 @@ export function TechBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border border-border bg-bg/30 px-3 py-1 text-xs text-fg-muted backdrop-blur",
+        "inline-flex items-center rounded-md border border-border px-2.5 py-0.5 text-xs text-fg-muted",
         className
       )}
     >

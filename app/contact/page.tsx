@@ -10,7 +10,7 @@ import { absoluteUrl, site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
-  description: `Contact ${site.name} for Laravel + Next.js projects, SaaS development, and consulting. Form, email, phone, GitHub, and LinkedIn.`,
+  description: `Contact ${site.name} to build and deploy production software. Form, email, phone, GitHub, and LinkedIn.`,
   path: "/contact",
 });
 
@@ -43,14 +43,14 @@ export default function ContactPage() {
         <Section className="pt-10">
           <PageHero
             title="Contact"
-            description="Laravel API, Next.js frontend, or full SaaS build? Send a message — I reply within 1–2 business days."
+            description="Need a system built and deployed? Send a message — I reply within 1–2 business days."
           />
         </Section>
 
         <Section className="pt-0">
           <Container>
-            <div className="grid gap-8 lg:grid-cols-5">
-              <div className="rounded-2xl border border-border bg-card/40 p-8 shadow-glow lg:col-span-3">
+            <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
+              <div className="rounded-xl border border-border p-5 sm:p-6 lg:col-span-3">
                 <h2 className="text-lg font-semibold">Project inquiry</h2>
                 <p className="mt-2 text-sm text-fg-muted">
                   Describe your stack, timeline, and goals. Messages are stored securely — see our{" "}
@@ -64,8 +64,8 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="grid gap-6 lg:col-span-2">
-                <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-glow">
+              <div className="grid gap-4 sm:gap-5 lg:col-span-2">
+                <div className="rounded-xl border border-border p-5 sm:p-6">
                   <h2 className="text-lg font-semibold">Email</h2>
                   <p className="mt-3 text-sm text-fg-muted">
                     <a
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   </Button>
                 </div>
 
-                <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-glow">
+                <div className="rounded-xl border border-border p-5 sm:p-6">
                   <h2 className="text-lg font-semibold">Phone</h2>
                   <p className="mt-3 text-sm text-fg-muted">
                     <a
@@ -92,7 +92,7 @@ export default function ContactPage() {
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-glow">
+                <div className="rounded-xl border border-border p-5 sm:p-6">
                   <h2 className="text-lg font-semibold">Social</h2>
                   <ul className="mt-3 space-y-2 text-sm text-fg-muted">
                     <li>

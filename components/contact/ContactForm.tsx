@@ -8,7 +8,7 @@ import { submitContact } from "@/lib/api/contact";
 import { cn } from "@/utils/cn";
 
 const submitClass =
-  "inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-medium text-black shadow-[0_10px_30px_rgba(255,255,255,0.08)] transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex items-center justify-center rounded-lg bg-fg px-4 py-2.5 text-sm font-medium text-bg transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50";
 
 const schema = z.object({
   name: z.string().min(2, "Name is required").max(120),
@@ -20,7 +20,7 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 const inputClass =
-  "w-full rounded-xl border border-border bg-bg/30 px-4 py-3 text-sm text-fg outline-none transition focus:border-[hsl(var(--accent-1))] focus:ring-1 focus:ring-[hsl(var(--accent-1))]";
+  "w-full rounded-lg border border-border bg-bg px-3 py-2.5 text-sm text-fg outline-none transition focus:border-fg-muted focus:ring-1 focus:ring-fg-muted";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -90,7 +90,7 @@ export function ContactForm() {
           id="message"
           rows={6}
           className={cn(inputClass, "mt-2 resize-y")}
-          placeholder="Tell me about your Laravel / Next.js project, timeline, and budget range…"
+          placeholder="Tell me what you want built, your timeline, and budget range…"
           {...register("message")}
         />
         {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message.message}</p>}

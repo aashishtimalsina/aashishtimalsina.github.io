@@ -20,7 +20,7 @@ export function PostCard({ post, className }: Props) {
   return (
     <article
       className={cn(
-        "group rounded-2xl border border-border bg-card/40 p-6 transition hover:border-white/20 hover:shadow-glow",
+        "rounded-xl border border-border bg-card p-5 transition hover:border-white/15 sm:p-6",
         className,
       )}
     >
@@ -48,7 +48,7 @@ export function PostCard({ post, className }: Props) {
         {post.reading_time_minutes ? <span>{post.reading_time_minutes} min read</span> : null}
       </div>
 
-      <h2 className="mt-3 text-xl font-semibold tracking-tight">
+      <h2 className="mt-3 text-lg font-semibold tracking-tight sm:text-xl">
         <Link href={`/blog/${post.slug}`} className="hover:text-accent-1">
           {post.title}
         </Link>
