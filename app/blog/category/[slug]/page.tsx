@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { AdUnit } from "@/components/ads/AdUnit";
 import { BlogPagination } from "@/components/blog/BlogPagination";
 import { PostCard } from "@/components/blog/PostCard";
 import { CategoryNav } from "@/components/blog/CategoryNav";
@@ -68,6 +69,8 @@ export default async function BlogCategoryPage({ params, searchParams }: Props) 
               posts.data.map((post) => <PostCard key={post.id} post={post} />)
             )}
           </div>
+
+          <AdUnit />
 
           <BlogPagination
             variant="category"

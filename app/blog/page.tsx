@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { AdUnit } from "@/components/ads/AdUnit";
 import { PostCard } from "@/components/blog/PostCard";
 import { CategoryNav } from "@/components/blog/CategoryNav";
 import { BlogSearch } from "@/components/blog/BlogSearch";
@@ -92,6 +93,8 @@ export default async function BlogPage({ searchParams }: Props) {
                 postsRes.data.map((post) => <PostCard key={post.id} post={post} />)
               )}
             </div>
+
+            <AdUnit />
 
             <BlogPagination
               variant="blog"

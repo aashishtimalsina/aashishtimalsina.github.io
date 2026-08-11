@@ -7,6 +7,7 @@ import { Section } from "@/components/layout/Section";
 import { OptimizedImage } from "@/components/seo/OptimizedImage";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getPost } from "@/lib/api/blog";
+import { AdUnit } from "@/components/ads/AdUnit";
 import { CommentsSection } from "@/components/blog/CommentsSection";
 import { SuggestedPosts } from "@/components/blog/SuggestedPosts";
 import { postBreadcrumbJsonLd, postJsonLd, postMetadata } from "@/lib/blog-seo";
@@ -116,6 +117,8 @@ export default async function BlogPostPage({ params }: Props) {
                   itemProp="articleBody"
                 />
               ) : null}
+
+              <AdUnit />
 
               <CommentsSection slug={slug} />
 
