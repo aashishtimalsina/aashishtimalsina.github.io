@@ -46,6 +46,9 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s — ${site.name}`,
     },
     verification: siteVerification(site.analytics?.google_site_verification),
+    other: {
+      "google-adsense-account": "ca-pub-6811311873085870",
+    },
     alternates: {
       canonical: "/",
       types: {
@@ -70,6 +73,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           href="/feed.xml"
         />
         <GoogleAnalytics measurementId={gaId} />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6811311873085870"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="min-h-dvh bg-bg font-sans text-fg">
         <SiteProvider site={site}>

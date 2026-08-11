@@ -45,6 +45,16 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.aashishtimalsina.com.np" }],
+        destination: "https://aashishtimalsina.com.np/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

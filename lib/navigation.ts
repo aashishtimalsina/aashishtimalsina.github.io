@@ -25,15 +25,13 @@ export const footerNav = {
   ],
 } as const;
 
-/** Static routes for sitemap.xml */
+/** Static routes for sitemap.xml — public, indexable pages only (auth-gated pages are noindexed). */
 export const staticRoutes = [
   "/",
+  "/about",
   "/services",
   "/blog",
   "/contact",
-  "/tools",
-  "/chat",
-  "/account",
   "/privacy-policy",
   "/terms",
   "/disclaimer",
